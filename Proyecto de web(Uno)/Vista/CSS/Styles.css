@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Courier New', Courier, monospace;
+}
+body{
+    background: #13171a;
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+    flex-direction: row-reverse;
+    height: 100vh;
+}
+#nameForm{
+    padding: 2rem;
+    max-width: 90%;
+    min-width: 280px;
+    min-height: 40vh;
+    margin: 5vh auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: #414854;
+    margin-top:100px;
+    border-radius: 10px;
+   border: 2px solid #CAF0F8;
+}
+.nameForm_Label{
+    margin: 1.5rem;
+    color: #CAF0F8;
+}
+.form_Title{
+    background: linear-gradient(135deg, #D72600, #ECD407, #379711, #0956BF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.5rem;
+}
+#gameMode,#playerName{
+    width: 100%;
+    margin: 5px 0;
+    padding: 8px;
+    background-color: transparent;
+    color: #CAF0F8;
+    border: 0;
+    border-bottom:2px solid  #CAF0F8; ;
+
+}
+.gameMode_Option{
+    background: #13171a;
+}
+.main_Title{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #CAF0F8;
+    font-size: 2rem;
+    margin: 20px 0;
+}
+.main_content{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    overflow:auto ;
+}
+.btn_Submit{
+    padding: 15px;
+    border-radius: 15px;
+    border: 3px solid #65686a;
+    background:transparent;
+    color: #CAF0F8;
+    cursor: pointer;
+    box-shadow: 0 10px #2a2929;
+    transition: .5s;
+}
+.btn_Submit:hover{
+    background:linear-gradient(135deg, #D72600, #ECD407, #379711, #0956BF); ;
+    color: #13171a;
+}
+
+.btn_Submit:active{
+    transform: translateY(4px);
+}
+.asideMenu{
+    width: 200px;
+    min-height: 100vh;
+    background: #414854;
+    color: #CAF0F8;
+    padding: 20px;
+    border-right:2px solid #CAF0F8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.logo_conatiner{
+    text-align: center;
+}
+.Logo{
+    width: 100px;
+    height: auto;
+    border-radius: 10px;
+}
+.asideMenu_Nav li{
+    display: inline-block;
+    list-style: none;
+    padding: 10px;
+    
+}
+.asideMenu_Nav a {
+    text-decoration: none;
+    color: #CAF0F8;
+
+}
