@@ -18,21 +18,18 @@
 <form id="nameForm">
     <h2 class="form_Title"><span>UNO</span></h2>
     <img class="nameForm_img"  src="/Vista/Imagenes/UNO_Logo.avif" alt="Logo de UNO" title="UNO">
-    <label for="player_Name" class="nameForm_Label">Ingresa tu nombre
+    <label for="player_Name" class="nameForm_Label">Ingresa tu nombre </label>
         <input type="text" placeholder="Jesus Martinez" class="nameForm_Input" id="playerName">
-    </label>
-    <label for="gameMode" class="nameForm_Label">Selecciona el Modo de Juego
-        <select name="gameMode" id="gameMode">
+    <label for="gameMode" class="nameForm_Label">Selecciona el Modo de Juego</label>
+        <select name="gameMode" id="gameMode" class="nameForm_Select">
             <option value="Clasico" class="gameMode_Option">Clasico</option>
             <option value="Rapido" class="gameMode_Option">Rapido</option>
             <option value="Personalizado" class="gameMode_Option">Personalizado</option>
         </select>
-    </label>
     <button type="submit" class="btn_Submit">Empezar partida</button>
 </form>
 </div>
 <aside class="asideMenu">
-    <img src="" alt="">
     <nav class="asideMenu_Nav">
         <ul>
             <li class="logo_conatiner"><img class="Logo" src="/Vista/Imagenes/UNO_Logo.avif" alt="">
@@ -50,7 +47,8 @@
             </a>
             </li>
             <li>
-                <a href="#">
+            <a href="#">
+                <i class="fa-solid fa-clipboard-list"></i>
                 Cartas Especiales
                 </a>
             </li>
