@@ -1,0 +1,139 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Courier New', Courier, monospace;
+}
+body{
+    background:#161d3f;
+    color: #CAF0F8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.gameContainer{
+    display: grid;
+    grid-template-areas: 
+    "player1 mesa player2"
+    "player3 mesa player4";
+    grid-template-columns:1fr 2fr 1fr;
+    grid-template-rows: 1fr 2fr;
+    gap: 30px;
+    width: 80%;
+    height: auto;
+    background-color: transparent;
+    border: 2px solid #eaeaea;
+    border-radius: 8px;
+    padding: 20px;
+}
+.player-1{
+    grid-area: player1;
+    text-align: center;
+}
+.player-2{
+    grid-area: player2;
+    text-align: center;
+}
+.player-3{
+    grid-area: player3;
+    text-align: center;
+}
+.player-4{
+    grid-area: player4;
+    text-align: center;
+}
+.Mesa{
+    grid-area:mesa ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #232f6b;
+    border: 2px solid #eaeaea;
+    border-radius: 10px;
+}
+.Logo{
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+}
+.Mesa ul{
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    list-style: none;
+}
+.players_Cards{
+    position: relative;
+    width: 400px;
+    height: 200px;
+    margin: 0 auto;
+}
+.players_Cards .hand {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.Mesa li{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 40px;
+    height: 60px;
+    background-color: #000;
+    border-radius: 5px;
+}
+.players_Cards .card {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    background-color: #000;
+    height: 60px;
+    border-radius: 5px;
+    border: 1px solid #eaeaea;
+    cursor: pointer;
+    transform-origin: bottom center;
+    transition:.5s;
+    margin: 10px;
+}
+.hand .card:nth-child(1) { 
+    transform: rotate(-20deg) translateX(-80px);
+    background-color: #D72600; 
+}
+.hand .card:nth-child(2) {
+     transform: rotate(-10deg) translateX(-60px);
+     background-color:#ECD407;
+    }
+.hand .card:nth-child(3) { 
+    transform: rotate(-5deg) translateX(-30px);
+    background-color: #379711;
+}
+.hand .card:nth-child(4){
+    background-color: #10ccf2;
+} 
+.hand .card:nth-child(5) { 
+    transform: rotate(5deg) translateX(30px);
+    background-color: #379711;
+ }
+.hand .card:nth-child(6) { 
+    transform: rotate(10deg) translateX(60px);
+    background-color:#ECD407;
+ }
+.hand .card:nth-child(7) {
+     transform: rotate(20deg) translateX(80px);
+     background-color: #D72600;
+}
+
+.players_Cards .card:hover {
+    transform: scale(1.2) translateY(-20px);
+    z-index: 2;
+}
