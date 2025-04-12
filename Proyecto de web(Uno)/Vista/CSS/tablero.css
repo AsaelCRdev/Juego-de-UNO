@@ -5,72 +5,98 @@
     font-family:'Courier New', Courier, monospace;
 }
 body{
-    background:#161d3f;
-    color: #CAF0F8;
+    color: #000;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
+    width: 100%;
 }
-.gameContainer{
+.gameContainer {
     display: grid;
-    grid-template-areas: 
-    "player1 mesa player2"
-    "player3 mesa player4";
-    grid-template-columns:1fr 2fr 1fr;
-    grid-template-rows: 1fr 2fr;
-    gap: 30px;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    gap: 20px;
+    height: 100vh;
+    width: 100vw;
+    background-color: #388E3C;
+    padding: 20px;
+    border-radius: 10px;
+    border: 3px solid #232f6b;
+    box-sizing: border-box;
+}
+.Players {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; 
+}
+
+.player-1 {
+    grid-column: span 2 / span 2;
+    grid-row: span 3 / span 3;
+    grid-column-start: 4;
+    grid-row-start: 7;
+}
+
+.player-2 {
+    grid-column: span 2 / span 2;
+    grid-row: span 3 / span 3;
+    grid-column-start: 7;
+    grid-row-start: 4;
+}
+
+.player-3 {
+    grid-column: span 2 / span 2;
+    grid-row: span 3 / span 3;
+    grid-column-start: 4;
+    grid-row-start: 1;
+}
+
+.player-4 {
+    grid-column: span 2 / span 2;
+    grid-row: span 3 / span 3;
+    grid-column-start: 1;
+    grid-row-start: 4;
+}
+.Mesa {
+    grid-column: span 2 / span 2;
+    grid-row: span 4 / span 4;
+    grid-column-start: 3;
+    grid-row-start: 4;
+    display: flex;
+    justify-content: center;
+    justify-content:flex-start;
+    gap: 20px; 
+}
+
+.Deck {
+    width: 100px;
+    height: 140px;
+    background-color: #D72600;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+.Deck:active{
+    transform: scale(0.95); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.Deck .Logo {
     width: 80%;
     height: auto;
-    background-color: transparent;
-    border: 2px solid #eaeaea;
-    border-radius: 8px;
-    padding: 20px;
-}
-.player-1{
-    grid-area: player1;
-    text-align: center;
-}
-.player-2{
-    grid-area: player2;
-    text-align: center;
-}
-.player-3{
-    grid-area: player3;
-    text-align: center;
-}
-.player-4{
-    grid-area: player4;
-    text-align: center;
-}
-.Mesa{
-    grid-area:mesa ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #232f6b;
-    border: 2px solid #eaeaea;
-    border-radius: 10px;
-}
-.Logo{
-    width: 200px;
-    height: auto;
-    border-radius: 10px;
-}
-.Mesa ul{
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    list-style: none;
 }
 .players_Cards{
-    position: relative;
     width: 400px;
     height: 200px;
     margin: 0 auto;
 }
 .players_Cards .hand {
-    position: relative;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -79,31 +105,22 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+}
 
-}
-.Mesa li{
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    width: 40px;
-    height: 60px;
-    background-color: #000;
-    border-radius: 5px;
-}
 .players_Cards .card {
     position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 20px;
     width: 40px;
+    height: 70px;
+    color: #000;
+    font-weight: bold;
     background-color: #000;
     height: 60px;
     border-radius: 5px;
     border: 1px solid #eaeaea;
     cursor: pointer;
-    transform-origin: bottom center;
     transition:.5s;
-    margin: 10px;
+    margin: 0px;
 }
 .hand .card:nth-child(1) { 
     transform: rotate(-20deg) translateX(-80px);
@@ -136,4 +153,33 @@ body{
 .players_Cards .card:hover {
     transform: scale(1.2) translateY(-20px);
     z-index: 2;
+}
+.uno-logo-button {
+    grid-column-start: 7;
+    grid-row-start: 8;
+    width: 120px;
+    height: 60px;
+    background-color: #D72600;
+    color: white;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+.uno-logo-button .Logo{
+    width: 80%;
+    height: 70%;
+}
+
+.uno-logo-button:hover {
+    transform: scale(1.1);
+    background-color: #D81B00;
+}
+
+
+.uno-logo-button:active {
+    transform: scale(0.95); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }

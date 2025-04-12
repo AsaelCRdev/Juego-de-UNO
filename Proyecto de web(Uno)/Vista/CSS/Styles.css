@@ -5,11 +5,13 @@
     font-family:'Courier New', Courier, monospace;
 }
 body{
-    background: #161d3f;
+    background-image: url(/Vista/Imagenes/Fondo_inicio.jpg);
     display: flex;
     justify-content:flex-end;
     align-items: center;
     flex-direction: row-reverse;
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 100vh;
 }
 #nameForm{
@@ -97,7 +99,7 @@ body{
     align-items: center;
     gap: 20px;
 }
-.logo_conatiner{
+.logo_container{
     text-align: center;
 }
 .Logo{
