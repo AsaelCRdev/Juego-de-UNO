@@ -12,9 +12,9 @@
 <body>
     <div class="gameContainer">
     <section class="Players player-1">
-        <h2>Jugador 1</h2>
-        <div class="players_Cards">
-            <ul class="hand">
+        <h2></h2>
+        <div class="players_Cards" >
+            <ul class="hand" id="playerhand1">
                 <li class="card">1</li>
                 <li class="card">2</li>
                 <li class="card">3</li>
@@ -28,7 +28,7 @@
     <section class="Players player-2">
         <h2>Jugador 2</h2>
         <div class="players_Cards">
-            <ul class="hand">
+            <ul class="hand" id="playerhand2">
                 <li class="card">1</li>
                 <li class="card">2</li>
                 <li class="card">3</li>
@@ -39,15 +39,18 @@
             </ul>
         </div>
     </section>
-    <section class="Mesa">
+    <section class="table">
         <div class="Deck">
             <img src="/Vista/Imagenes/UNO_Logo.png" class="Logo" alt="Logo">
+        </div>
+        <div class="discard-zone">
+            <ul id="discard-zone"></ul>
         </div>
     </section>
     <section class="Players player-3">
         <h2>Jugador 3</h2>
         <div class="players_Cards">
-            <ul class="hand">
+            <ul class="hand" id="playerhand3">
                 <li class="card">1</li>
                 <li class="card">2</li>
                 <li class="card">3</li>
@@ -61,7 +64,7 @@
     <section class="Players player-4">
         <h2>Jugador 4</h2>
         <div class="players_Cards">
-            <ul class="hand">
+            <ul class="hand" id="playerhand4">
                 <li class="card">1</li>
                 <li class="card">2</li>
                 <li class="card">3</li>
@@ -72,7 +75,7 @@
             </ul>
         </div>
     </section>
-    <button class="uno-logo-button "><img src="/Vista/Imagenes/UNO_Logo.png" class="Logo" alt="Logo"></button>
+    <button class="uno-logo-button"><img src="/Vista/Imagenes/UNO_Logo.png" class="Logo" alt="Logo"></button>
 </div>
 </body>
 </html>

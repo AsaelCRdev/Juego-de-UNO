@@ -1,3 +1,12 @@
+:root{
+    --board-background:#1F3C88;
+    --red-card:#eb1f30;
+    --green-card:#0fcf66;
+    --blue-card:#0fb6f8;
+    --yellow-card:#ebd03a;
+    --card-border:#000;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -9,20 +18,16 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    width: 100%;
+    width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color:var(--board-background);
 }
 .gameContainer {
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(9, 1fr);
+    grid-template-columns: repeat(8, minmax(120px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(120px, 1fr));
     gap: 20px;
-    height: 100vh;
-    width: 100vw;
-    background-color: #388E3C;
-    padding: 20px;
-    border-radius: 10px;
-    border: 3px solid #232f6b;
     box-sizing: border-box;
 }
 .Players {
@@ -60,20 +65,38 @@ body{
     grid-column-start: 1;
     grid-row-start: 4;
 }
-.Mesa {
+.table {
     grid-column: span 2 / span 2;
     grid-row: span 4 / span 4;
     grid-column-start: 3;
     grid-row-start: 4;
+    background: radial-gradient(circle, #245D26 10%, #1B3820 80%);
+    border: 15px solid #d87c3a;
+    border-radius: 5px;
     display: flex;
+    align-items: center;
+    z-index: -1;
+    width: 50vw;
     justify-content: center;
-    justify-content:flex-start;
     gap: 20px; 
 }
-
+.discard-zone{
+    width: 14%;
+    height: 50%;
+    border-radius: 10px;
+    border: 2px solid #bbb0b1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    
+}
+.discard-zone ul{
+    list-style: none;
+}
 .Deck {
-    width: 100px;
-    height: 140px;
+    width: 14%;
+    height: 50%;
     background-color: #D72600;
     border-radius: 10px;
     display: flex;
@@ -110,44 +133,58 @@ body{
 .players_Cards .card {
     position: absolute;
     font-size: 20px;
-    width: 40px;
-    height: 70px;
+    
+    width: min(35px, 8vw);
+    height: min(50px, 8vw);
     color: #000;
     font-weight: bold;
     background-color: #000;
-    height: 60px;
     border-radius: 5px;
     border: 1px solid #eaeaea;
     cursor: pointer;
     transition:.5s;
     margin: 0px;
+    
+    box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease;
+}
+.card::before {
+    content: "";
+    width: 60px;
+    height: 60px;
+    background: var(--card-text-color);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .hand .card:nth-child(1) { 
     transform: rotate(-20deg) translateX(-80px);
-    background-color: #D72600; 
+    background-color: var(--red-card); 
 }
 .hand .card:nth-child(2) {
-     transform: rotate(-10deg) translateX(-60px);
-     background-color:#ECD407;
+    transform: rotate(-10deg) translateX(-60px);
+    background-color:var(--yellow-card);
     }
 .hand .card:nth-child(3) { 
     transform: rotate(-5deg) translateX(-30px);
-    background-color: #379711;
+    background-color: var(--green-card);
 }
 .hand .card:nth-child(4){
-    background-color: #10ccf2;
+    background-color: var(--blue-card);
 } 
 .hand .card:nth-child(5) { 
     transform: rotate(5deg) translateX(30px);
-    background-color: #379711;
- }
+    background-color: var(--green-card);
+}
 .hand .card:nth-child(6) { 
     transform: rotate(10deg) translateX(60px);
-    background-color:#ECD407;
- }
+    background-color:var(--yellow-card);
+}
 .hand .card:nth-child(7) {
-     transform: rotate(20deg) translateX(80px);
-     background-color: #D72600;
+    transform: rotate(20deg) translateX(80px);
+    background-color:var(--red-card);
 }
 
 .players_Cards .card:hover {
