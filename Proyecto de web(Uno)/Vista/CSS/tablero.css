@@ -133,7 +133,6 @@ body{
 .players_Cards .card {
     position: absolute;
     font-size: 20px;
-    
     width: min(35px, 8vw);
     height: min(50px, 8vw);
     color: #000;
@@ -144,21 +143,10 @@ body{
     cursor: pointer;
     transition:.5s;
     margin: 0px;
-    
     box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.5);
     transition: transform 0.2s ease;
 }
-.card::before {
-    content: "";
-    width: 60px;
-    height: 60px;
-    background: var(--card-text-color);
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+
 .hand .card:nth-child(1) { 
     transform: rotate(-20deg) translateX(-80px);
     background-color: var(--red-card); 
