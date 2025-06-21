@@ -1,0 +1,534 @@
+body {
+  position: absolute;
+  inset: 0;
+  background: #000;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMTkuNSIgbnVtT2N0YXZlcz0iMTAiIHJlc3VsdD0idHVyYnVsZW5jZSIvPjxmZUNvbXBvc2l0ZSBvcGVyYXRvcj0iaW4iIGluPSJ0dXJidWxlbmNlIiBpbjI9IlNvdXJjZUFscGhhIiByZXN1bHQ9ImNvbXBvc2l0ZSIvPjxmZUNvbG9yTWF0cml4IGluPSJjb21wb3NpdGUiIHR5cGU9Imx1bWluYW5jZVRvQWxwaGEiLz48ZmVCbGVuZCBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJjb21wb3NpdGUiIG1vZGU9ImNvbG9yLWJ1cm4iLz48L2ZpbHRlcj48L2RlZnM+PGcgZmlsdGVyPSJ1cmwoJyNhJykiPjxwYXRoIGZpbGw9IiMyNmIiIGQ9Ik0wIDBoMTAwdjEwMEgweiIvPjxwYXRoIGQ9Ik0wIDB2MTAwaDEwMFYwWiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2U9IiM0OGYiIGZpbGw9IiMwMDAwIi8+PHBhdGggZmlsbD0iIzQ4ZjUiIGQ9Ik01MCAwaDF2MTAwaC0xeiIvPjxwYXRoIGZpbGw9IiM0OGY1IiBkPSJNMCA1MGgxMDB2MUgweiIvPjwvZz48L3N2Zz4=");
+  mask: linear-gradient(#0004, #000);
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: 1fr auto 1fr;
+    grid-template-areas: 
+        "player-4 player-4 player-4"
+        "player-3 table-center player-2"
+        "player-1 player-1 player-1";
+    min-height: 100vh;
+}
+
+.table-center {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas: 
+      "container-uno-cards btn-uno-container"
+      "container-uno-cards btn-uno-container";
+  min-height: auto;
+  column-gap: 50px;
+}
+
+.refill-cards {
+  position: relative;
+  left: 30%;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.dispenser-cards {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-uno-cards {
+  min-width: 1100px;
+  min-height: 500px;
+  background: linear-gradient(
+      rgba(0, 168, 65, 0.769) 30px, 
+      rgb(64, 162, 82)
+  );
+  border: 10px solid #fff319;
+  border-radius: 1rem;
+  box-shadow:
+    0 0 15px rgba(27, 108, 228, 0.349),
+    0 0 30px rgba(151, 65, 252, 0.15);
+  backdrop-filter: brightness(1.1); /* Si usas máscara global */
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas: 
+      "refill-cards dispenser-cards"
+      "refill-cards dispenser-cards";
+  
+  column-gap: 50px;
+}
+
+/*---------SAY UNO BUTTON---------------*/
+.btn-uno-container {
+  position: relative;
+  top: 50%;
+  width: 4.5em;
+  height: 4em;
+  background-color: #9e0707;
+  overflow: hidden;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scale: 2;
+  box-shadow: 0 .5em #9e0707;
+  transition: all .1s ease;
+  filter: drop-shadow(0 6px 2px #9e0707);
+  border: 1px solid #9e0707;
+}
+
+.buttonUNO {
+  font-weight: 800;
+  cursor: pointer;
+  position: absolute;
+  text-transform: uppercase;
+  height: 110%;
+  width: 110%;
+  background-color: #c44141;
+  color: white;
+}
+
+.btn-uno-container:has(.buttonUNO:active) {
+  box-shadow: none;
+  margin-top: 2em;
+  filter: drop-shadow(0 3px 1px #4836bbbe);
+}
+
+/*----------------*/
+
+
+
+/*CARD DESIGNS*/
+.card-container {
+  perspective: 800px;
+}
+
+.card {
+  position: relative;
+  width: 210px;
+  height: 332px;
+  background: #fffffd;
+  border-radius: 1em;
+  box-shadow: 0 0 6px -4px black;
+  transition: 0.75s all;
+  transform-style: preserve-3d;
+  pointer-events: none;
+  user-select: none;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  bottom: -24px;
+  bottom: 0;
+  left: 0;
+  width: 210px;
+  height: 110px;
+  transform: translate(0em, 60%) rotateX(90deg) scale(0.8);
+  border-radius: 100%;
+  background-color: #000a;
+  z-index: -10;
+  filter: blur(24px);
+}
+
+.card-container:hover .card {
+  transform: rotateY(180deg);
+}
+
+.back {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inset: 0.7em;
+  border-radius: 1.25em;
+  background: #191f1f;
+  overflow: hidden;
+}
+
+.back .text {
+  position: absolute;
+  font-size: 5em;
+  font-weight: 800;
+  color: #e4c713;
+  transform-origin: center;
+  transform: rotate(-15deg) translateX(5px);
+  text-shadow:
+    2px 2px #f1e8ad,
+    2px 1px #f1e8ad,
+    2px 0px #f1e8ad,
+    2px -1px #f1e8ad,
+    2px -2px #f1e8ad,
+    1px -2px #f1e8ad,
+    0px -2px #f1e8ad,
+    -1px -2px #f1e8ad,
+    -2px -2px #f1e8ad,
+    -2px -1px #f1e8ad,
+    -2px 0px #f1e8ad,
+    -2px 1px #f1e8ad,
+    -2px 2px #f1e8ad,
+    -12px 10px #191f1f,
+    -10px 10px #191f1f,
+    -9px 9.428571429px #191f1f,
+    -8px 8.857142857px #191f1f,
+    -7px 8.285714286px #191f1f,
+    -6px 7.714285714px #191f1f,
+    -5px 7.142857143px #191f1f,
+    -4px 6.571428572px #191f1f,
+    -3px 6px #191f1f,
+    -2px 5.428571429px #191f1f,
+    -1px 4.857142857px #191f1f,
+    0px 4.285714286px #191f1f,
+    1px 3.714285715px #191f1f,
+    2px 3.142857143px #191f1f,
+    3px 2.571428572px #191f1f,
+    4px 2px #191f1f,
+    4px -4px #191f1f,
+    -4px -4px #191f1f,
+    -5px -3px #191f1f,
+    -6px -2px #191f1f,
+    -7px -1px #191f1f,
+    -8px 0px #191f1f,
+    -9px 1px #191f1f,
+    -10px 2px #191f1f,
+    -11px 3px #191f1f,
+    -12px 4px #191f1f,
+    -14px 4px #fffffd,
+    -13px 3px #fffffd,
+    -12px 2px #fffffd,
+    -11px 1px #fffffd,
+    -10px 0px #fffffd,
+    -9px -1px #fffffd,
+    -8px -2px #fffffd,
+    -7px -3px #fffffd,
+    -6px -4px #fffffd,
+    -5px -5px #fffffd,
+    -4px -6px #fffffd,
+    -3px -6px #fffffd,
+    0px -6px #fffffd,
+    3px -6px #fffffd,
+    6px -6px #fffffd,
+    -14px 12px #fffffd,
+    -8px 12px #fffffd,
+    -7px 11.5px #fffffd,
+    -6px 11px #fffffd,
+    -5px 10.5px #fffffd,
+    -4px 10px #fffffd,
+    -3px 9.5px #fffffd,
+    -2px 9px #fffffd,
+    -1px 8.5px #fffffd,
+    0px 8px #fffffd,
+    1px 7.5px #fffffd,
+    2px 7px #fffffd,
+    3px 6.5px #fffffd,
+    4px 6px #fffffd,
+    5px 5.5px #fffffd,
+    6px 4px #fffffd;
+}
+
+.text-center {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    position: absolute;
+    width: 15em;
+    color: white;
+    text-align: center;
+    font-size: 10em;
+    text-shadow:
+      -7px -3px 0 #000,
+      -1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000;
+}
+
+.text-top {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    position: absolute;
+    top: 0.2em;
+    left: 0.2em;
+    width: 10em;
+    color: white;
+    font-size: 3rem;
+    text-shadow:
+      -4px -3px 0 #000,
+      -1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000;
+}
+
+.text-bottom {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    position: absolute;
+    bottom: 0em;
+    right: 0em;
+    width: 1em;
+    color: white;
+    font-size: 3rem;
+    text-shadow:
+      -4px -3px 0 #000,
+      -1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000;
+}
+
+
+
+.cards-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+/*--------------*/
+
+/*---------Colores de las cartas---------*/
+.red {
+  position: absolute;
+  background: #cb0323;
+  inset: 0;
+  border-radius: 100%;
+  transform-origin: center;
+  transform: scale(0.875) skewX(-22.5deg);
+}
+
+.green {
+  position: absolute;
+  background: rgb(55, 151, 17);
+  inset: 0;
+  border-radius: 100%;
+  transform-origin: center;
+  transform: scale(0.875) skewX(-22.5deg);
+}
+
+.blue {
+  position: absolute;
+  background: rgb(9, 86, 191);
+  inset: 0;
+  border-radius: 100%;
+  transform-origin: center;
+  transform: scale(0.875) skewX(-22.5deg);
+}
+
+.yellow {
+  position: absolute;
+  background: rgb(236, 212, 7);
+  inset: 0;
+  border-radius: 100%;
+  transform-origin: center;
+  transform: scale(0.875) skewX(-22.5deg);
+}
+
+.black {
+  position: absolute;
+  background: rgb(0, 0, 0);
+  inset: 0;
+  border-radius: 100%;
+  transform-origin: center;
+  transform: scale(0.875) skewX(-22.5deg);
+}
+
+.white {
+  position: absolute;
+  background: #fffffd; /* Blanco */
+  inset: 0;
+  border-radius: 100%;
+  transform-origin: center;
+  transform: scale(0.875) skewX(-22.5deg);
+  z-index: 0; /* Detrás del contenido */
+}
+
+/*-------------------------*/
+
+/*---------Colores del frente de las cartas---------*/
+.front-red {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inset: 0.7em;
+  border-radius: 1.25em;
+  background: #cb0323;
+  overflow: hidden;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.front-red .red {
+  border: 0.7em solid #fffffd;
+  transform: scale(0.92, 0.875) skewX(-22.5deg);
+}
+
+.front-green {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inset: 0.7em;
+  border-radius: 1.25em;
+  background: rgb(55, 151, 17);
+  overflow: hidden;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.front-green .green {
+  border: 0.7em solid #fffffd;
+  transform: scale(0.92, 0.875) skewX(-22.5deg);
+}
+
+.front-blue {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inset: 0.7em;
+  border-radius: 1.25em;
+  background: rgb(9, 86, 191);
+  overflow: hidden;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.front-blue .blue {
+  border: 0.7em solid #fffffd;
+  transform: scale(0.92, 0.875) skewX(-22.5deg);
+}
+
+.front-yellow {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inset: 0.7em;
+  border-radius: 1.25em;
+  background: rgb(236, 212, 7);
+  overflow: hidden;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.front-yellow .yellow {
+  border: 0.7em solid #fffffd;
+  transform: scale(0.92, 0.875) skewX(-22.5deg);
+}
+
+.front-black {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inset: 0.7em;
+  border-radius: 1.25em;
+  background: rgb(0, 0, 0);
+  overflow: hidden;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.front-black .black {
+  border: 0.7em solid #ffffff;
+  background-color: white;
+  transform: scale(0.92, 0.875) skewX(-22.5deg);
+}
+/*--------------------------------------------------------*/
+
+/*Player 1*/
+.player-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* espacio entre título y cartas */
+}
+
+.player-1 h3 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 2rem;
+  color: white;
+  text-shadow: 0 0 5px black;
+  z-index: 10; /* Asegura que esté encima visualmente */
+  margin: 0;
+}
+
+.player-1 hr {
+  width: 40%;
+  border: none;
+  height: 3px;
+  background: linear-gradient(to right, transparent, white, transparent);
+  margin: 0;
+  opacity: 0.6;
+}
+
+/*-----------*/
+
+/*-----Player-4-----------*/
+.player-4 {
+  transform: rotate(-180deg);
+  transform-origin: center;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.player-4 h3 {
+  transform: rotate(180deg);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 2rem;
+  color: white;
+  text-shadow: 0 0 5px black;
+  z-index: 10; /* Asegura que esté encima visualmente */
+  margin: 0;
+}
+
+.player-4 hr {
+  transform: rotate(180deg);
+  width: 40%;
+  border: none;
+  height: 3px;
+  background: linear-gradient(to right, transparent, white, transparent);
+  margin: 0;
+  opacity: 0.6;
+}
+/*---------------------------*/
+
+/*Animacion cartas*/
+.card-fly {
+  animation: cardFlyIn 0.5s ease forwards;
+  opacity: 0;
+}
+
+@keyframes cardFlyIn {
+  0% {
+    transform: translateY(-20px) scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+/*------------------*/
+

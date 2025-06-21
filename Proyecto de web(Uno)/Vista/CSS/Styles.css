@@ -1,120 +1,535 @@
-*{
-    margin: 0;
-    padding: 0;
+/*Tipografias para las letras (sacado de Google)*/
+@import url(https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200..1000&display=swap);
+
+* {
     box-sizing: border-box;
-    font-family:'Courier New', Courier, monospace;
-}
-body{
-    background-image: url(/Vista/Imagenes/Fondo_inicio.jpg);
-    display: flex;
-    justify-content:flex-end;
-    align-items: center;
-    flex-direction: row-reverse;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
-}
-#nameForm{
-    padding: 2rem;
-    max-width: 90%;
-    min-width: 280px;
-    min-height: 40vh;
-    margin: 5vh auto;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background: #232f6b;
-    margin-top:100px;
-    border-radius: 10px;
-   border: 2px solid #CAF0F8;
-}
-.nameForm_Label{
-    margin: 1.5rem;
-    color: #CAF0F8;
-    
-}
-.form_Title{
-    background: linear-gradient(135deg, #D72600, #ECD407, #379711, #0956BF);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 2.5rem;
-}
-#gameMode,#playerName{
-    width: 100%;
-    margin: 5px 0;
-    padding: 8px;
-    background-color: transparent;
-    color: #CAF0F8;
-    border: 0;
-    border-bottom:2px solid  #CAF0F8; ;
-
-}
-.gameMode_Option{
-    background: #232f6b;
-}
-.main_Title{
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #CAF0F8;
-    font-size: 2rem;
-    margin: 20px 0;
-}
-.main_content{
-    width: 75%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    overflow:auto ;
-}
-.btn_Submit{
-    padding: 15px;
-    margin-top: 10px;
-    border-radius: 15px;
-    border: 3px solid #65686a;
-    background:transparent;
-    color: #CAF0F8;
-    cursor: pointer;
-    box-shadow: rgb(82, 83, 84) 1px 3px 18px;
-    transition: .5s;
-}
-.btn_Submit:hover{
-    background:linear-gradient(135deg, #D72600, #ECD407, #379711, #0956BF); ;
-    color: #13171a;
+    padding: 0;
+    margin: 0;
+    font-family: "Inter", sans-serif;
 }
 
-.btn_Submit:active{
-    transform: translateY(4px);
-}
-.asideMenu{
-    width: 200px;
-    min-height: 100vh;
-    background: #232f6b;
-    color: #CAF0F8;
-    padding: 20px;
-    border-right:2px solid #CAF0F8;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-.logo_container{
-    text-align: center;
-}
-.Logo{
-    width: 100px;
-    height: auto;
-    border-radius: 10px;
-}
-.asideMenu_Nav li{
-    display: inline-block;
-    list-style: none;
-    padding: 10px;
-    
-}
-.asideMenu_Nav a {
+a {
     text-decoration: none;
-    color: #CAF0F8;
+}
 
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+button {
+    all: unset;
+}
+
+.gif-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+.gif-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-fixed);
+    margin: .75rem;
+}
+
+.header__container {
+    width: 85%;
+    position: relative;
+    right: -15%;
+    height: 3.5rem;
+    background-color: hsl(228, 100%, 99%);
+    box-shadow: 0 2px 24px hsla(228, 80%, 4%, 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 1.5rem;
+    border-radius: 1rem;
+    transition: background-color .4s;
+}
+
+/* Fuerza visibilidad del icono del header */
+.header__toggle i {
+    color: #3225e7 !important;
+    font-size: 1.5rem;
+    z-index: 9999;
+}
+
+/* Estilo opcional para hacer más clara la interacción */
+.header__toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.game-form__container {
+    opacity: 0.9;
+    width: 25%;
+    position: relative;
+    right: -70%;
+    top: 100px;
+    height: 870px;
+    background-color: #272737;
+    box-shadow: 0 2px 24px hsla(228, 80%, 4%, 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 1.5rem;
+    border-radius: 0.5rem;
+    transition: background-color .3s;
+}
+
+.game-form__logo {
+    flex-shrink: 0;
+    position: relative;
+    left: 20%;
+    top: -270px;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*Pesonalizacion de la entrada de datos del form*/
+
+.game-form__data_input {
+    position: relative;
+}
+
+.user_input {
+    position: absolute;
+    font-size: 32px;
+    color: #fff;
+    top: -70%;
+    left: -390%;
+}
+
+.text-gmode {
+    position: relative;
+    font-size: 32px;
+    top: 2%;
+    left: -115%;
+    width: auto;
+    white-space: nowrap;
+    color: #fff;
+}
+
+.form-control {
+    position: relative;
+    left: -390%;
+    margin: 20px 0 40px;
+    width: 300px;
+  }
+  
+  .form-control input {
+    position: relative;
+    top: -50px;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px #fff solid;
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+    font-size: 18px;
+    color: #fff;
+  }
+  
+  .form-control input:focus,
+  .form-control input:valid {
+    outline: 0;
+    border-bottom-color: lightblue;
+  }
+  
+  .form-control label {
+    position: absolute;
+    top: -30px;
+    left: 0;
+    pointer-events: none;
+  }
+  
+  .form-control label span {
+    display: inline-block;
+    font-size: 18px;
+    min-width: 5px;
+    color: #fff;
+    transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .form-control input:focus+label span,
+  .form-control input:valid+label span {
+    color: lightblue;
+    transform: translateY(-30px);
+  }
+
+/*--------------------------------------------------------*/
+
+
+/*Seleccion del modo de juego*/
+
+.radio-input {
+    position: relative;
+    top: 20%;
+    left: -200%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .radio-input * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .radio-input label {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 0px 20px;
+    width: 220px;
+    cursor: pointer;
+    height: 50px;
+    position: relative;
+  }
+  
+  .radio-input label::before {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 220px;
+    height: 45px;
+    z-index: -1;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border-radius: 10px;
+    border: 2px solid transparent;
+  }
+  .radio-input label:hover::before {
+    transition: all 0.2s ease;
+    background-color: #2a2e3c;
+  }
+  
+  .radio-input .label:has(input:checked)::before {
+    background-color: #2d3750;
+    border-color: #435dd8;
+    height: 50px;
+  }
+  .radio-input .label .text {
+    color: #fff;
+  }
+  
+  .radio-input .label input[type="radio"] {
+    background-color: #202030;
+    appearance: none;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .radio-input .label input[type="radio"]:checked {
+    background-color: #435dd8;
+    -webkit-animation: puls 0.7s forwards;
+    animation: pulse 0.7s forwards;
+  }
+  
+  .radio-input .label input[type="radio"]:before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    transition: all 0.1s cubic-bezier(0.165, 0.84, 0.44, 1);
+    background-color: #fff;
+    transform: scale(0);
+  }
+  
+  .radio-input .label input[type="radio"]:checked::before {
+    transform: scale(1);
+  }
+  
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 8px rgba(255, 255, 255, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+  }
+/*--------------------------------------------------------*/
+
+
+/*Boton para comenzar a jugar*/
+button {
+  /* Variables */
+  position: relative;
+  top: 40%;
+  left: -40%;
+  --button_radius: 0.75em;
+  --button_color: #e8e8e8;
+  --button_outline_color: #000000;
+  font-size: 17px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--button_radius);
+  background: var(--button_outline_color);
+}
+
+.button_top {
+  display: block;
+  width: 250px;
+  box-sizing: border-box;
+  border: 2px solid var(--button_outline_color);
+  border-radius: var(--button_radius);
+  padding: 0.75em 1.5em;
+  background: var(--button_color);
+  color: var(--button_outline_color);
+  transform: translateY(-0.2em);
+  transition: transform 0.1s ease;
+}
+
+button:hover .button_top {
+  /* Pull the button upwards when hovered */
+  transform: translateY(-0.33em);
+}
+
+button:active .button_top {
+  /* Push the button downwards when pressed */
+  transform: translateY(0);
+}
+
+/*--------------------------------------------------------*/
+
+
+/*Configuracion y personalizacion de la barra lateral*/
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+    width: 288px;
+    background-color: hsl(228, 100%, 99%);
+    box-shadow: 2px 0 24px hsla(228, 80%, 4%, .1);
+    padding-block: 1.5rem;
+    margin: .75rem;
+    border-radius: 1rem;
+    transition: left .4s, background-color .4s, width .4s;
+}
+
+/*Personalizacion de boton de change theme mode del sidebar*/
+
+/* The switch - the box around the slider */
+
+.theme-toggle {
+    position: relative;
+    left: 5%;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre el sol (icono) y el change theme */
+    font-size: 32px;
+}
+
+.switch {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 3.5em;
+    height: 2em;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(75, 73, 74);
+  transition: 0.4s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.4em;
+  width: 1.4em;
+  border-radius: 20px;
+  left: 0.3em;
+  bottom: 0.3em;
+  background-color: black;
+  box-shadow: inset 8px -4px 0 0 white;
+  transition: 0.4s;
+}
+
+.switch input:checked + .slider {
+  background-color: #2196f3;
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(1.5em);
+  background-color: yellow;
+  box-shadow: none;
+}
+  
+
+/*--------------------------------------------------------------*/
+
+.sidebar__container, .sidebar__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 3rem;
+}
+
+.sidebar__container {
+    height: 100%;
+    overflow: hidden;
+}
+
+.sidebar__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar__img {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar__img img {
+    position: static;
+    width: 100%;
+    height: auto;
+}
+
+.sidebar__logo__desc h3 {
+    font-size: .938rem;
+    color: hsl(231, 15%, 36%);
+    transition: color .4s;
+}
+
+.sidebar__content {
+    overflow: hidden auto;
+}
+
+/*ScrollBar para la SideBar*/
+.sidebar__content::-webkit-scrollbar {
+    width: .4rem;
+    background-color: hsl(228, 8%, 85%);
+}
+
+/*Personalizacion de la scrollbar*/
+.sidebar__content::-webkit-scrollbar-thumb {
+    background-color: hsl(228, 8%, 75%);
+}
+
+.sidebar__title {
+    width: max-content;
+    font-size: 1rem;
+    font-weight: 800;
+    padding-left: 2rem;
+    margin-bottom: -1.5rem;
+    color: hsl(22, 59%, 57%);
+}
+
+.sidebar__play__list, .sidebar__functionalities__list, .sidebar__actions {
+    display: grid;
+    row-gap: 1.5rem;
+}
+
+.sidebar__link {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    align-items: center;
+    column-gap: 1rem;
+    color: hsl(228, 8%, 56%);
+    padding-left: 2rem;
+    transition: color .4s, opacity .4s;
+}
+
+.sidebar__link i {
+    font-size: 1.25rem;
+}
+
+.sidebar__link span {
+    font-weight: 600;
+}
+
+.sidebar__link:hover {
+    color: hsl(228, 85%, 63%);
+}
+
+.sidebar__actions {
+    margin-top: auto;
+}
+
+.sidebar__actions button {
+    cursor: pointer;
+}
+
+.sidebar__theme {
+    width: 100%;
+    font-size: 1.25rem;
+}
+
+.sidebar__theme span {
+    font-size: .938rem;
+    font-family: "Nunito Sans" system-ui;
+}
+
+
+/*Estos dos "active-link" son los que personalizan las opciones en las que uno hizo click y esta en esa seccion de pagina*/
+.active-link {
+    color: hsl(228, 85%, 63%);
+}
+
+.active-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 3px;
+    height: 20px;
+    background-color: hsl(228, 85%, 63%);
 }

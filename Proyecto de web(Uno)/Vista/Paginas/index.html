@@ -1,67 +1,151 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Descubre Como jugar con tus amigos al clásico UNO y explora varios modos de juego emocionantes con dinamias únicas. Disfruta del dinamismo de las para sorprender, desafiar y cambiar el rumbo de la partida. Diseña estrategias ingeniosas, sabotea a tus oponentes y demuestra tu destreza en cada jugada. ¿Estás listo para el desafío?!Únete ahora y domina el tablero con diversión y emoción sin límites¡">
-    <meta name="keywords" content="clásico UNO,jugar UNO con amigos,cartas especiales,modos de juego UNO,estrategias de UNO,juegos de cartas,emocionantes,desafío">
-    <link rel="icon" type="image/png" href="/Vista/Imagenes/UNO_Logo.png">
-    <link rel="stylesheet" href="/Vista/CSS/Styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <title>UNO</title>
-</head>
-<body>
-   
-    <div class="main_content">
-    
-    
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>UNO! Play</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/Juego-de-UNO/Proyecto de web(Uno)/Vista/CSS/Styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+    </head>
+    <body>
 
-<form id="nameForm">
-    <h2 class="form_Title"><span>UNO</span></h2>
-    <img class="nameForm_img"  src="/Vista/Imagenes/UNO_Logo.avif" class="Logo" alt="Logo de UNO" title="UNO">
-    <label for="player_Name" class="nameForm_Label">Ingresa tu nombre </label>
-        <input type="text" placeholder="Jesus Martinez" class="nameForm_Input" id="playerName">
-    <label for="gameMode" class="nameForm_Label">Selecciona el Modo de Juego</label>
-        <select name="gameMode" id="gameMode" class="nameForm_Select">
-            <option value="Clasico" class="gameMode_Option">Clasico</option>
-            <option value="Rapido" class="gameMode_Option">Rapido</option>
-            <option value="Personalizado" class="gameMode_Option">Personalizado</option>
-        </select>
-    <button type="submit" class="btn_Submit">Empezar partida</button>
-</form>
-</div>
-<aside class="asideMenu">
-    <nav class="asideMenu_Nav">
-        <ul>
-            <li class="logo_container">
-                <img class="Logo" src="/Vista/Imagenes/UNO_Logo.png" alt="">
-            </li>
-            <li>
-            <a href="#">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                Acerca de Nosotros
-            </a>
-            </li>
-            <li>
-            <a href="#">
-                <i class="fa-solid fa-book"></i>
-                Reglas
-            </a>
-            </li>
-            <li>
-            <a href="#">
-                <i class="fa-solid fa-clipboard-list"></i>
-                Cartas Especiales
-                </a>
-            </li>
-            <li>
-            <a href="#">
-                <i class="fa-solid fa-hand-fist"></i>
-                Poderes
-            </a>
-            </li>
-        </ul>
-    </nav>
-</aside>
-</body>
+        <div class="gif-background">
+            <img src="/Juego-de-UNO/Proyecto de web(Uno)/Vista/Imagenes/giphy.gif" alt="Fondo animado">
+        </div>
+
+        <!--Cabecera de la página-->
+        <header class="header" id="header">
+            <div class="header__container">
+
+                <a href="" class="header__toggle"><i class="ri-menu-line"></i></a>
+            </div>
+        </header>
+
+        <!--Sección de entrada de datos como username/Presentación de juego/Ingresar al juego-->
+        <div class="game-form">
+            <div class="game-form__container">
+                <div class="game-form__logo">
+                    <img src="/Juego-de-UNO/Proyecto de web(Uno)/Vista/Imagenes/UNO_Logo.png" alt="UNOGAME">
+                </div>
+
+                <button>
+                    <a href="/Juego-de-UNO/Proyecto de web(Uno)/Vista/Paginas/tablero-game.html" class="button_top"> ▶︎ JUGAR </a>
+                </button>
+                <span class="text-gmode">Selecciona el modo de juego</span>
+                <div class="radio-input">
+                    <label class="label">
+                      <input
+                        type="radio"
+                        id="value-1"
+                        checked=""
+                        name="value-radio"
+                        value="value-1"
+                      />
+                      <p class="text">Reglas Clásicas</p>
+                    </label>
+                    <label class="label">
+                      <input type="radio" id="value-2" name="value-radio" value="value-2" />
+                      <p class="text">UNO Progresivo</p>
+                    </label>
+                    <label class="label">
+                      <input type="radio" id="value-3" name="value-radio" value="value-3" />
+                      <p class="text">UNO Siete-Cero</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" id="value-3" name="value-radio" value="value-3" />
+                        <p class="text">UNO Jump-In</p>
+                      </label>
+                  </div>
+                
+                <!--Sección de entrada de datos (username)-->
+                <div class="game-form__data_input">
+                    <span class="user_input">Introduce tu usuario</span>
+                    <div class="form-control">
+                        <input type="value" required="">
+                        <label>
+                            <span style="transition-delay:0ms">U</span><span style="transition-delay:50ms">s</span><span style="transition-delay:100ms">e</span><span style="transition-delay:150ms">r</span><span style="transition-delay:200ms">n</span><span style="transition-delay:250ms">a</span><span style="transition-delay:300ms">m</span><span style="transition-delay:350ms">e</span>
+                        </label>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+
+        <!--Sidebar o barra lateral-->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar__container">
+                <!--Logo-->
+                <div class="sidebar__logo">
+                    <div class="sidebar__img">
+                        <img src="/Juego-de-UNO/Proyecto de web(Uno)/Vista/Imagenes/UNO_Logo.png" alt="UNOLOGO">
+                    </div>
+                </div>
+                <!--Descripcion del logo-->
+                <!--<div class="sidebar__logo__desc">
+                    <h3>UNO!</h3>
+                </div>-->
+
+                <!--Contenido del sidebar-->
+                <div class="sidebar__content">
+                    <h3 class="sidebar__title">Jugar</h3>
+
+                    <div class="sidebar__play__list">
+                        <!--Posicion actual al abrir la página-->
+                        <a href="#" class="sidebar__link active-link">
+                            <i class="ri-play-line"></i>
+                            <span>Jugar</span>
+                        </a>
+                        <a href="#" class="sidebar__link">
+                            <i class="ri-map-2-line"></i>
+                            <span>¿Cómo jugar?</span>
+                        </a>
+                        <a href="#" class="sidebar__link">
+                            <i class="ri-search-line"></i>
+                            <span>Acerca de</span>
+                        </a>
+                    </div>
+
+
+                    
+                    <!--Funcionalidades, nuevas cosas, etc...-->
+                    <h3 class="sidebar__title">Funcionalidades</h3>
+                    <div class="sidebar__functionalities__list">
+                        <a href="#" class="sidebar__link">
+                            <i class="ri-asterisk"></i>
+                            <span>Cartas disponibles</span>
+                        </a>
+
+                        <a href="#" class="sidebar__link">
+                            <i class="ri-meteor-fill"></i>
+                            <span>Poderes</span>
+                        </a>
+                    </div>
+
+                    <h3 class="sidebar__title">Configuración</h3>
+                    <div class="sidebar__settings__list">
+                        <a href="#" class="sidebar__link">
+                            <i class="ri-settings-3-line"></i>
+                            <span>Configuración</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="sidebar__actions">
+                    <!--Boton de change theme mode (claro/oscuro)-->
+                    <div class="theme-toggle">
+                        <i class="ri-sun-line"></i>
+                        <label class="switch">
+                            <input type="checkbox" />
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+    </body>
 </html>
