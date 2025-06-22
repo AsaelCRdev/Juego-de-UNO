@@ -23,137 +23,124 @@ body{
     align-items: center;
     width: 100vw;
     min-height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
     background-color:var(--board-background);
+}
+
+h2{
+    color: #e6e4e4;
 }
 .gameContainer {
     display: grid;
-    grid-template-columns: repeat(8, minmax(120px, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 20px;
-    box-sizing: border-box;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 1.5vw;
+    width: 95vw;
+    max-width: 1400px;
+    min-height: 90vh;
+    margin: auto;
 }
 .Players {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px; 
+    gap: 0.5em; 
 }
 
-.player-1 {
-    grid-column: span 2 / span 2;
-    grid-row: span 3 / span 3;
-    grid-column-start: 4;
-    grid-row-start: 7;
-}
+.player-1 { grid-column: 4 / span 2; grid-row: 7 / span 2; }
+.player-2 { grid-column: 7 / span 2; grid-row: 4 / span 2; }
+.player-3 { grid-column: 4 / span 2; grid-row: 1 / span 2; }
+.player-4 { grid-column: 1 / span 2; grid-row: 4 / span 2; }
 
-.player-2 {
-    grid-column: span 2 / span 2;
-    grid-row: span 3 / span 3;
-    grid-column-start: 7;
-    grid-row-start: 4;
-}
-
-.player-3 {
-    grid-column: span 2 / span 2;
-    grid-row: span 3 / span 3;
-    grid-column-start: 4;
-    grid-row-start: 1;
-}
-
-.player-4 {
-    grid-column: span 2 / span 2;
-    grid-row: span 3 / span 3;
-    grid-column-start: 1;
-    grid-row-start: 4;
-}
 .table {
-    grid-column: span 2 / span 2;
-    grid-row: span 4 / span 4;
-    grid-column-start: 3;
-    grid-row-start: 4;
+    grid-column: 3 / span 4;
+    grid-row: 3 / span 4;
     background: radial-gradient(circle, #245D26 10%, #1B3820 80%);
-    border: 15px solid #d87c3a;
-    border-radius: 5px;
+    border: 1vw solid #d87c3a;
+    border-radius: 2vw;
     display: flex;
     align-items: center;
-    z-index: -1;
-    width: 50vw;
     justify-content: center;
-    gap: 20px; 
+    z-index: 1;
+    width: 100%;
+    min-height: 180px;
+    gap: 2vw; 
 }
-.discard-zone{
-    width: 14%;
-    height: 50%;
-    border-radius: 10px;
-    border: 2px solid #bbb0b1;
+.discard-zone,.Deck{
+    width: 10vw;
+    min-width: 70x;
+    max-width: 120px;
+    height: 25vh;
+    min-height: 160px;
+    max-height: 260px; 
+    border-radius: 1vw;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     
 }
-.discard-zone ul{
+.discard-zone{
     list-style: none;
+    border: 2px solid #bbb0b1;
+    background: #fff;
 }
 .Deck {
-    width: 14%;
-    height: 50%;
     background-color: var(--red-card);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     cursor: pointer;
+    transition: transform 0.2s;
 }
 .Deck:active{
     transform: scale(1.2); 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
-
 .Deck .Logo {
-    width: 80%;
+    width: 70%;
     height: auto;
 }
 .players_Cards{
-    width: 400px;
-    height: 200px;
+    width: 100%;
+    min-width: 420x;
+    max-width: 180px;
+    height: 10vw;
+    min-height: 70px;
+    max-height: 160px; 
     margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
-.players_Cards .hand {
+.hand {
     list-style: none;
     width: 100%;
     height: 100%;
+    gap: 5vw;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .players_Cards .card {
     position: absolute;
-    font-size: 20px;
-    width: min(1.8em, 8vw);
-    height: min(2.5em, 8vw);
+    font-size: clamp(12px,2vw,22px);
+    width: clamp(2em,2vw,3.5rem);
+    height: clamp(3em,5vw,5em);
     color: #000;
     font-weight: bold;
     background-color: #000;
-    border-radius: 5px;
+    border-radius: 0.5em;
     border: 1px solid #eaeaea;
     cursor: pointer;
-    transition:.5s;
-    margin: 0px;
     box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.5);
     transition: transform 0.5s ease;
 }
 
-.players_Cards .card{
-    transition:transform 0.3s ease, z-index 0.3s ease;
-}
 
 .players_Cards .card:hover {
-    transform: scale(1.1) translateY(-15px);
+    transform: scale(1.1) translateY(-10%);
     z-index: 2;
 }
 
@@ -269,21 +256,20 @@ body{
 }
 
 .uno-logo-button {
-    grid-column-start: 7;
+    grid-column-start: 7 / span 2;
     grid-row-start: 8;
     width: 120px;
     height: 60px;
     background-color: var(--red-card);
-    color: white;
-    font-size: 1.5rem;
     border: none;
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     transition: transform 0.2s ease, background-color 0.3s ease;
+    
 }
 .uno-logo-button .Logo{
-    width: 80%;
+    width: 60%;
     height: 70%;
 }
 
@@ -295,25 +281,127 @@ body{
 
 .uno-logo-button:active {
     transform: scale(0.95); 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .exit{
-    width: 20vh;
-    height:10vh;
+    width: 120px;
+    height:50px;
     background-color: #d72700;
     color: white;
     font-size: 1.5rem;
     border-radius: 10px;
     box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.5);
     transition: transform 0.5s ease;
-    cursor: pointer
+    cursor: pointer;
 }
 .exit:active{
     transform: scale(0.95); 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 .exit:hover{
     transform: scale(1.1);
     background-color: var(--red-card);
 }
+
+/*Parte Responsive del codigo*/
+
+@media (max-width: 1000px) {
+    .gameContainer {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(10, 1fr);
+        gap: 2vw;
+        width: 99vw;
+    }
+    .player-1 { grid-column: 2 / span 2; grid-row: 9 / span 2; }
+    .player-2 { grid-column: 4 / span 1; grid-row: 5 / span 2; }
+    .player-3 { grid-column: 2 / span 2; grid-row: 1 / span 2; }
+    .player-4 { grid-column: 1 / span 1; grid-row: 5 / span 2; }
+    .table { grid-column: 2 / span 2; grid-row: 4 / span 3; }
+
+    .discard-zone, .Deck {
+        width: clamp(70px, 22vw, 140px);
+        height: clamp(100px, 18vh, 200px);
+    }
+    
+}
+
+@media (max-width: 700px) {
+    .gameContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2vw;
+        width: 100vw;
+        min-width: 0;
+    }
+    .Players, .table {
+        width: 98vw ;
+        min-width: 0;
+        max-width: 100vw;
+        margin: 0 auto;
+    }
+    .players_Cards {
+        width: 98vw;
+        min-width: 0;
+        max-width: 100vw;
+        height: 48px;
+    }
+    .players_Cards .card {
+        font-size: 14px;
+        width: 1.2em;
+        height: 2.2em;
+    }
+    .uno-logo-button, .exit {
+        width: 98vw;
+        height: 36px;
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+    .table {
+        flex-direction: column;
+        border-width: 4px;
+        padding: 8px 0;
+        min-height: 90px;
+    }
+    .Deck, .discard-zone {
+        width: clamp(50px, 60vw, 100px);
+        height: clamp(60px, 14vh, 120px);
+        min-width: 40px;
+        min-height: 40px;
+        max-width: 120px;
+        max-height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .players_Cards {
+        height: 30px;
+    }
+    .players_Cards .card {
+        font-size: 10px;
+        width: 0.5em;
+        height: 1.5em;
+    }
+    .uno-logo-button, .exit {
+        height: 28px;
+        font-size: 0.9rem;
+    }
+    .table {
+        border-width: 2px;
+        min-height: 40px;
+    }
+    .Deck, .discard-zone {
+        width: clamp(30px,80vw,80px);
+        height: clamp(30px,10vh,60px);
+        min-width: 30px;
+        min-height: 30px;
+        max-width: 80px;
+        max-height: 60px;
+    }
+}
+
+/*Estilos referentes al js*/
+
+.front-bg[data-color="red"]    { background: var(--red-card);    color: #fff; }
+.front-bg[data-color="green"]  { background: var(--green-card);  color: #fff; }
+.front-bg[data-color="blue"]   { background: var(--blue-card);   color: #fff; }
+.front-bg[data-color="yellow"] { background: var(--yellow-card); color: #000; }
