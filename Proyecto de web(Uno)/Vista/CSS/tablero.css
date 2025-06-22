@@ -14,7 +14,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif
+    font-family: "Poppins", sans-serif;
+    list-style: none;
 }
 body{
     color: #000;
@@ -85,7 +86,13 @@ h2{
     list-style: none;
     border: 2px solid #bbb0b1;
     background: #fff;
+
+    
 }
+#discard-zone{
+    font-size: clamp(12px,2vw,22px);
+}
+
 .Deck {
     background-color: var(--red-card);
     cursor: pointer;
@@ -283,6 +290,43 @@ h2{
     transform: scale(0.95); 
 }
 
+.skip-turn {
+   width: 180px;
+    max-width: 90vw;
+    height: 48px;
+    background: linear-gradient(90deg, var(--yellow-card), var(--red-card));
+    color: #232f6b;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 18px auto 10px auto;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    cursor: pointer;
+    transition: 
+        background 0.3s,
+        color 0.3s,
+        transform 0.15s,
+        box-shadow 0.3s;
+    display: block;
+    letter-spacing: 1px;
+    outline: none;
+}
+
+.skip-turn:hover, .skip-turn:focus {
+    background: linear-gradient(90deg, var(--red-card), var(--yellow-card));
+    color: #fff;
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 8px 24px 0 rgba(235,31,48,0.18);
+}
+
+.skip-turn:active {
+    background: var(--yellow-card);
+    color: var(--red-card);
+    transform: scale(0.97);
+    box-shadow: 0 2px 8px rgba(236, 213, 7, 0.18);
+}
+
 .exit{
     width: 120px;
     height:50px;
@@ -370,6 +414,14 @@ h2{
         max-width: 120px;
         max-height: 120px;
     }
+    
+    .skip-turn {
+        width: 98vw;
+        min-width: 0;
+        font-size: 1rem;
+        height: 40px;
+        margin: 12px auto 8px auto;
+    }
 }
 
 @media (max-width: 480px) {
@@ -397,11 +449,16 @@ h2{
         max-width: 80px;
         max-height: 60px;
     }
+    .skip-turn {
+        font-size: 0.95rem;
+        height: 32px;
+        border-radius: 18px;
+    }
 }
 
 /*Estilos referentes al js*/
 
-.front-bg[data-color="red"]    { background: var(--red-card);    color: #fff; }
-.front-bg[data-color="green"]  { background: var(--green-card);  color: #fff; }
-.front-bg[data-color="blue"]   { background: var(--blue-card);   color: #fff; }
-.front-bg[data-color="yellow"] { background: var(--yellow-card); color: #000; }
+.front-bg[data-color="red"]    { background: #fff;    color: #000; }
+.front-bg[data-color="green"]  { background: #fff;  color: #000; }
+.front-bg[data-color="blue"]   { background: #fff;   color: #000; }
+.front-bg[data-color="yellow"] { background: #fff; color: #000; }
