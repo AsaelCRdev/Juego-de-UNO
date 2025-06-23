@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Instrucciones de UNO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../CSS/Styles.css">
+    <link rel="stylesheet" href="../CSS/instrucciones.css">
+    <link rel="icon" type="image/png" href="../Imagenes/UNO_Logo.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Botón menú hamburguesa -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <i class="fa fa-bars"></i>
+    </button>
+
+    <!-- Sidebar -->
+    <aside class="asideMenu" id="sidebar">
+        <nav class="asideMenu_Nav">
+            <ul>
+                <li class="logo_container">
+                    <img class="Logo" src="../Imagenes/UNO_Logo.png" alt="Logo UNO">
+                </li>
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+                <li><a href=""><i class="fa-solid fa-magnifying-glass"></i> Acerca de Nosotros</a></li>
+                <li><a href="instrucciones.html"><i class="fa-solid fa-book"></i> Reglas</a></li>
+                <li><a href="cartas.html"><i class="fa-solid fa-clipboard-list"></i> Cartas Especiales</a></li>
+                <li><a href="poderes.html"><i class="fa-solid fa-hand-fist"></i> Poderes</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Contenido principal -->
+    <div class="instructions-container">
+        <h1>¿Cómo se juega UNO?</h1>
+
+        <div class="instructions-card">
+            <p class="intro">
+                El objetivo del juego es <strong>quedarte sin cartas antes que los demás</strong>. Cada jugador comienza con 7 cartas y toma turnos para colocar una carta que coincida en <strong>color</strong> o <strong>número</strong> con la que está en la pila central.
+            </p>
+
+            <ul class="rules-list">
+                <li><span class="tag">+2:</span> El siguiente jugador roba 2 cartas y pierde el turno.</li>
+                <li><span class="tag">Reversa:</span> Cambia la dirección del juego.</li>
+                <li><span class="tag">Salta:</span> El siguiente jugador pierde su turno.</li>
+                <li><span class="tag">Cambio de color:</span> Cambia el color actual del juego.</li>
+                <li><span class="tag">+4:</span> El siguiente jugador roba 4 cartas y también se cambia el color.</li>
+            </ul>
+
+            <p class="tip">
+                Cuando te quede solo una carta, no olvides gritar <strong>¡UNO!</strong> antes que los demás lo noten, o deberás robar 2 cartas como penalización.
+            </p>
+        </div>
+    </div>
+
+    <!-- Script de menú -->
+    <script>
+        const toggleBtn = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+    </script>
+
+</body>
+</html>

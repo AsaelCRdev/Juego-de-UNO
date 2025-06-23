@@ -1,0 +1,126 @@
+:root {
+  --yellow-card: #FFD60A;
+  --red-card: #D72600;
+  --board-background: #0b132b;
+}
+
+body {
+  background-color: var(--board-background);
+  font-family: "Poppins", sans-serif;
+  color: white;
+  display: flex;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.mainContent {
+  flex-grow: 1;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.instructions-card {
+  background-color: #1d2951;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  max-width: 750px;
+  width: 100%;
+}
+
+.instructions-card h1 {
+  font-size: 2.5rem;
+  color: var(--yellow-card);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.instructions-card p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.rules-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 20px 0;
+}
+
+.rules-list li {
+  margin-bottom: 15px;
+  font-size: 1.05rem;
+}
+
+.tag {
+  font-weight: bold;
+  color: var(--yellow-card);
+}
+
+.tip {
+  margin-top: 25px;
+  font-style: italic;
+  color: #CAF0F8;
+}
+
+/* Sidebar */
+.asideMenu {
+  width: 220px;
+  background: #232f6b;
+  color: #CAF0F8;
+  padding: 20px;
+  border-right: 2px solid #CAF0F8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.asideMenu_Nav ul {
+  width: 100%;
+}
+
+.logo_container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.Logo {
+  width: 100px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.asideMenu_Nav li {
+  list-style: none;
+  padding: 12px 0;
+}
+
+.asideMenu_Nav a {
+  text-decoration: none;
+  color: #CAF0F8;
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .asideMenu {
+    position: fixed;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .asideMenu.open {
+    transform: translateX(0);
+  }
+
+  .mainContent {
+    margin-left: 0;
+    padding: 20px;
+  }
+}
