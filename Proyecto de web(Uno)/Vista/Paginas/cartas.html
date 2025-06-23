@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cartas Especiales - UNO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/Styles.css">
+    <link rel="stylesheet" href="../CSS/cartas.css">
+    <link rel="icon" type="image/png" href="../Imagenes/UNO_Logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+</head>
+<body>
+
+    <!-- Botón menú hamburguesa -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <i class="ri-menu-line"></i>
+    </button>
+
+    <!-- Sidebar única -->
+    <nav class="sidebar asideMenu" id="sidebar">
+        <div class="sidebar__container">
+            <!-- Logo -->
+            <div class="sidebar__logo">
+                <div class="sidebar__img">
+                    <img src="../Imagenes/UNO_Logo.png" alt="UNOLOGO">
+                </div>
+            </div>
+
+            <!-- Contenido del sidebar -->
+            <div class="sidebar__content">
+                <h3 class="sidebar__title">Jugar</h3>
+                <div class="sidebar__play__list">
+                    <a href="menu.html" class="sidebar__link">
+                        <i class="ri-play-line"></i>
+                        <span>Jugar</span>
+                    </a>
+                    <a href="instrucciones.html" class="sidebar__link">
+                        <i class="ri-map-2-line"></i>
+                        <span>¿Cómo jugar?</span>
+                    </a>
+                </div>
+
+                <h3 class="sidebar__title">Funcionalidades</h3>
+                <div class="sidebar__functionalities__list">
+                    <a href="cartas.html" class="sidebar__link active-link">
+                        <i class="ri-asterisk"></i>
+                        <span>Cartas disponibles</span>
+                    </a>
+                    <a href="poderes.html" class="sidebar__link">
+                        <i class="ri-meteor-fill"></i>
+                        <span>Poderes</span>
+                    </a>
+                </div>
+
+                <div class="sidebar__settings__list">
+                    <a href="/Vista/Paginas/index.html" class="sidebar__link">
+                        <span>Volver a inicio</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="sidebar__actions">
+                <!-- Botón de cambio de tema -->
+                <div class="theme-toggle">
+                    <i class="ri-sun-line"></i>
+                    <label class="switch">
+                        <input type="checkbox" />
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="cartas-container">
+        <h1>Cartas Especiales de UNO</h1>
+
+        <div class="cartas-grid">
+
+            <div class="card-item">
+                <img src="../Imagenes/+2cardReal.jpg" alt="Carta +2">
+                <div class="card-info">
+                    <h3>+2</h3>
+                    <p>El siguiente jugador roba 2 cartas y pierde su turno.</p>
+                </div>
+            </div>
+
+            <div class="card-item">
+                <img src="../Imagenes/reversa.jpg" alt="Carta Reversa">
+                <div class="card-info">
+                    <h3>Reversa</h3>
+                    <p>Cambia el sentido del juego. Ideal para devolver ataques o evitar un salto.</p>
+                </div>
+            </div>
+
+            <div class="card-item">
+                <img src="../Imagenes/saltaTurno.jpg" alt="Carta Salta Turno">
+                <div class="card-info">
+                    <h3>Salta</h3>
+                    <p>El jugador siguiente pierde su turno. Úsala para ganar ventaja o interrumpir cadenas.</p>
+                </div>
+            </div>
+
+            <div class="card-item">
+                <img src="../Imagenes/CambioColor.jpg" alt="Carta Cambio de Color">
+                <div class="card-info">
+                    <h3>Cambio de Color</h3>
+                    <p>Te permite cambiar el color del juego a tu conveniencia, sin penalizar al otro jugador.</p>
+                </div>
+            </div>
+
+            <div class="card-item">
+                <img src="../Imagenes/+2card.jpg" alt="Carta +4">
+                <div class="card-info">
+                    <h3>+4 y Cambio de Color</h3>
+                    <p>El siguiente jugador roba 4 cartas y tú eliges el nuevo color. Solo se usa si no tienes otra jugada válida.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="/js/menu.js"></script>
+</body>
+</html>

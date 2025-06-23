@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNO - Poderes Especiales</title>
+    <link rel="stylesheet" href="../CSS/Styles.css">
+    <link rel="stylesheet" href="../CSS/instrucciones.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+</head>
+<body>
+
+<!-- Botón menú hamburguesa -->
+     <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <i class="ri-menu-line"></i>
+    </button>
+
+    <!-- Sidebar única -->
+    <nav class="sidebar asideMenu" id="sidebar">
+        <div class="sidebar__container">
+            <!-- Logo -->
+            <div class="sidebar__logo">
+                <div class="sidebar__img">
+                    <img src="../Imagenes/UNO_Logo.png" alt="UNOLOGO">
+                </div>
+            </div>
+
+            <!-- Contenido del sidebar -->
+            <div class="sidebar__content">
+                <h3 class="sidebar__title">Jugar</h3>
+                <div class="sidebar__play__list">
+                    <a href="menu.html" class="sidebar__link">
+                        <i class="ri-play-line"></i>
+                        <span>Jugar</span>
+                    </a>
+                    <a href="instrucciones.html" class="sidebar__link">
+                        <i class="ri-map-2-line"></i>
+                        <span>¿Cómo jugar?</span>
+                    </a>
+                </div>
+
+                <h3 class="sidebar__title">Funcionalidades</h3>
+                <div class="sidebar__functionalities__list">
+                    <a href="cartas.html" class="sidebar__link active-link">
+                        <i class="ri-asterisk"></i>
+                        <span>Cartas disponibles</span>
+                    </a>
+                    <a href="poderes.html" class="sidebar__link">
+                        <i class="ri-meteor-fill"></i>
+                        <span>Poderes</span>
+                    </a>
+                </div>
+
+                <div class="sidebar__settings__list">
+                    <a href="/Vista/Paginas/index.html" class="sidebar__link">
+                        <span>Volver a inicio</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="sidebar__actions">
+                <!-- Botón de cambio de tema -->
+                <div class="theme-toggle">
+                    <i class="ri-sun-line"></i>
+                    <label class="switch">
+                        <input type="checkbox" />
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+</aside>
+<main class="main-content">
+<div class="instructions-container">
+    <h1>Poderes Especiales</h1>
+
+    <div class="instructions-card">
+        <p class="intro">
+            Estos poderes le dan un giro inesperado al juego. Úsalos con astucia para cambiar el ritmo de la partida, sabotear a tus oponentes o salvarte en el último momento:
+        </p>
+
+        <ul class="rules-list">
+            <li><span class="tag">Robar Manos:</span> Intercambia todas tus cartas con otro jugador.</li>
+            <li><span class="tag">Robo Masivo:</span> Todos los jugadores (excepto tú) deben robar 2 cartas.</li>
+            <li><span class="tag">Escudo:</span> Bloquea el efecto de la próxima carta +2 o +4 que te lancen.</li>
+            <li><span class="tag">Salto Reforzado:</span> Salta el turno de dos jugadores en lugar de uno.</li>
+            <li><span class="tag">Reversa y +2:</span> Cambia la dirección y obliga al nuevo siguiente jugador a robar 2 cartas.</li>
+        </ul>
+
+        <p class="tip">
+            Estos poderes no siempre aparecen en el mazo. ¡Úsalos con sabiduría cuando tengas la oportunidad!
+        </p>
+    </div>
+</div>
+</main>
+<script src="/js/menu.js"></script>
+</body>
+</html>

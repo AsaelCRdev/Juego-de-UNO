@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Instrucciones de UNO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../CSS/Styles.css">
+    <link rel="stylesheet" href="../CSS/instrucciones.css">
+    <link rel="icon" type="image/png" href="../Imagenes/UNO_Logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+
+</head>
+<body>
+
+    <!-- Botón menú hamburguesa -->
+     <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <i class="ri-menu-line"></i>
+    </button>
+
+    <!-- Sidebar única -->
+    <nav class="sidebar asideMenu" id="sidebar">
+        <div class="sidebar__container">
+            <!-- Logo -->
+            <div class="sidebar__logo">
+                <div class="sidebar__img">
+                    <img src="../Imagenes/UNO_Logo.png" alt="UNOLOGO">
+                </div>
+            </div>
+
+            <!-- Contenido del sidebar -->
+            <div class="sidebar__content">
+                <h3 class="sidebar__title">Jugar</h3>
+                <div class="sidebar__play__list">
+                    <a href="menu.html" class="sidebar__link">
+                        <i class="ri-play-line"></i>
+                        <span>Jugar</span>
+                    </a>
+                    <a href="instrucciones.html" class="sidebar__link">
+                        <i class="ri-map-2-line"></i>
+                        <span>¿Cómo jugar?</span>
+                    </a>
+                </div>
+
+                <h3 class="sidebar__title">Funcionalidades</h3>
+                <div class="sidebar__functionalities__list">
+                    <a href="cartas.html" class="sidebar__link active-link">
+                        <i class="ri-asterisk"></i>
+                        <span>Cartas disponibles</span>
+                    </a>
+                    <a href="poderes.html" class="sidebar__link">
+                        <i class="ri-meteor-fill"></i>
+                        <span>Poderes</span>
+                    </a>
+                </div>
+
+                <div class="sidebar__settings__list">
+                    <a href="/Vista/Paginas/index.html" class="sidebar__link">
+                        <span>Volver a inicio</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="sidebar__actions">
+                <!-- Botón de cambio de tema -->
+                <div class="theme-toggle">
+                    <i class="ri-sun-line"></i>
+                    <label class="switch">
+                        <input type="checkbox" />
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Contenido principal -->
+    <div class="content">
+        <h1>¿Cómo se juega UNO?</h1>
+
+        <div class="instructions-card">
+            <p class="intro">
+                El objetivo del juego es <strong>quedarte sin cartas antes que los demás</strong>. Cada jugador comienza con 7 cartas y toma turnos para colocar una carta que coincida en <strong>color</strong> o <strong>número</strong> con la que está en la pila central.
+            </p>
+
+            <ul class="rules-list">
+                <li><span class="tag">+2:</span> El siguiente jugador roba 2 cartas y pierde el turno.</li>
+                <li><span class="tag">Reversa:</span> Cambia la dirección del juego.</li>
+                <li><span class="tag">Salta:</span> El siguiente jugador pierde su turno.</li>
+                <li><span class="tag">Cambio de color:</span> Cambia el color actual del juego.</li>
+                <li><span class="tag">+4:</span> El siguiente jugador roba 4 cartas y también se cambia el color.</li>
+            </ul>
+
+            <p class="tip">
+                Cuando te quede solo una carta, no olvides gritar <strong>¡UNO!</strong> antes que los demás lo noten, o deberás robar 2 cartas como penalización.
+            </p>
+        </div>
+    </div>
+
+    <!-- Script de menú -->
+    <script src="/js/menu.js"></script>
+
+</body>
+</html>

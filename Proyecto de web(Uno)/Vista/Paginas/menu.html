@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>UNO! Play</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/Vista/CSS/Styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+</head>
+<body>
+
+    <div class="gif-background">
+        <img src="/Vista/Imagenes/giphy.gif" alt="Fondo animado">
+    </div>
+
+    <!-- Cabecera de la página -->
+    <header class="header" id="header">
+        <div class="header__container">
+            <a href="#" id="menuToggle" class="header__toggle" aria-label="Abrir menú"><i class="ri-menu-line"></i></a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Sección de entrada de datos y presentación -->
+        <form id="nameForm">
+        <section class="game-form">
+            <div class="game-form__container">
+                <div class="game-form__logo">
+                    <img src="/Vista/Imagenes/UNO_Logo.png" alt="UNOGAME">
+                </div>
+
+                <button  class="button_top" style="display:block; text-align:center; margin-bottom:1rem;">▶︎ JUGAR</button>
+
+                <h2 class="text-gmode">Selecciona el modo de juego</h2>
+            
+            <div class="radio-input">
+                    <label class="label">
+                        <input type="radio" id="modo-clasico" checked name="modo-juego" value="clasico"/>
+                        <p class="text">Reglas Clásicas</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" id="modo-progresivo" name="modo-juego" value="progresivo" />
+                        <p class="text">UNO Progresivo</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" id="modo-siete-cero" name="modo-juego" value="siete-cero" />
+                        <p class="text">UNO Siete-Cero</p>
+                    </label>
+                    <label class="label">
+                        <input type="radio" id="modo-jump-in" name="modo-juego" value="jump-in" />
+                        <p class="text">UNO Jump-In</p>
+                    </label>
+                </div>
+                
+                <!-- Entrada de usuario -->
+                <div class="game-form__data_input">
+                    <div class="form-control">
+                        <label for="username" class="user_input">Introduce tu nombre de usuario</label>
+                        <input id="playerName" type="text" name="username" required>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </form>
+    </main>
+
+    <!-- Sidebar o barra lateral -->
+    <nav class="sidebar asideMenu" id="sidebar">
+        <div class="sidebar__container">
+            <!-- Logo -->
+            <div class="sidebar__logo">
+                <div class="sidebar__img">
+                    <img src="/Vista/Imagenes/UNO_Logo.png" alt="UNOLOGO">
+                </div>
+            </div>
+
+            <!-- Contenido del sidebar -->
+            <div class="sidebar__content">
+                <h3 class="sidebar__title">Jugar</h3>
+                <div class="sidebar__play__list">
+                    <a href="/Vista/Paginas/instrucciones.html" class="sidebar__link">
+                        <i class="ri-map-2-line"></i>
+                        <span>¿Cómo jugar?</span>
+                    </a>
+                </div>
+
+                <h3 class="sidebar__title">Funcionalidades</h3>
+                <div class="sidebar__functionalities__list">
+                    <a href="/Vista/Paginas/cartas.html" class="sidebar__link">
+                        <i class="ri-asterisk"></i>
+                        <span>Cartas disponibles</span>
+                    </a>
+                    <a href="/Vista/Paginas/poderes.html" class="sidebar__link">
+                        <i class="ri-meteor-fill"></i>
+                        <span>Poderes</span>
+                    </a>
+                </div>
+
+                <div class="sidebar__settings__list">
+                    <a href="/Vista/Paginas/index.html" class="sidebar__link">
+                        <span>Volver a inicio</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="sidebar__actions">
+                <!-- Botón de cambio de tema -->
+                <div class="theme-toggle">
+                    <i class="ri-sun-line"></i>
+                    <label class="switch">
+                        <input type="checkbox" />
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </nav>
+<script src="/js/menu.js"></script>
+<script src="/js/button.js"></script>
+
+</body>
+</html>
