@@ -5,246 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Juega Partidas clasicas de UNO en vivo contra computadora o tus amigos">
     <meta name="keywords" content="UNO,partida en vivo,jugar con amigos">
-    <link rel="icon" type="image/png" href="/Juego-de-UNO/Proyecto de web(Uno)/Vista/Imagenes/UNO_Logo.png">
-    <link rel="stylesheet" href="/Juego-de-UNO/Proyecto de web(Uno)/Vista/CSS/tablero.css">
+    <link rel="icon" type="image/png" href="/assets/Images/UNO_Logo.png">
+    <link rel="stylesheet" href="../CSS/tableronew.css">
     <title>UNO clásico</title>
 </head>
 <body>
-    <div class="gameContainer">
-    <section class="Players player-1">
-        <h2></h2>
-        <div class="players_Cards" >
-            <ul class="hand" id="playerhand1">
-                <li class="card" data-value="">
-                    <div class="card-inner">
-                        <div class="front">
-                            <div class="front-bg">1</div>
-                        </div>
-                    </div> 
-                </li>
-                <li class="card" data-value="">
-                    <div class="card-inner">
-                        <div class="front">
-                            <div class="front-bg">2</div>
-                        </div>
-                    </div> 
-                </li>
-                <li class="card" data-value="">
-                    <div class="card-inner">
-                        <div class="front">
-                            <div class="front-bg">3</div>
-                        </div>
-                    </div> 
-                </li>
-                <li class="card" data-value="">
-                    <div class="card-inner">
-                        <div class="front">
-                            <div class="front-bg">4</div>
-                        </div>
-                    </div> 
-                </li>
-                <li class="card" data-value="">
-                    <div class="card-inner">
-                        <div class="front">
-                            <div class="front-bg">5</div>
-                        </div>
-                    </div> 
-                </li>
-                <li class="card" data-value="">
-                    <div class="card-inner">
-                        <div class="front">
-                            <div class="front-bg">6</div>
-                        </div>
-                    </div> 
-                </li>
-                <li class="card" data-value="">
-                    <div class="card-inner">
-                        <div class="front">
-                            <div class="front-bg">7</div>
-                        </div>
-                    </div> 
-                </li>
-            </ul>
-        </div>
-    </section>
-    <section class="Players player-2">
-        <h2>Jugador 2</h2>
-        <div class="players_Cards">
-            <ul class="hand" id="playerhand2">
-            <li class="card" data-value="">
-                <div class="back">
-                    <div class="back-bg">
-                        <p class="uno">UNO</p>
-                    </div>
-                </div>
-            </li>
-            <li class="card" data-value="">
-                <div class="back">
-                    <div class="back-bg">
-                        <p class="uno">UNO</p>
-                    </div>
-                </div>
-            </li>
-            <li class="card" data-value="">
-                <div class="back">
-                    <div class="back-bg">
-                        <p class="uno">UNO</p>
-                    </div>
-                </div>
-            </li>
-            <li class="card" data-value="">
-                <div class="back">
-                    <div class="back-bg">
-                        <p class="uno">UNO</p>
-                    </div>
-                </div>
-            </li>
-            <li class="card" data-value="">
-                <div class="back">
-                    <div class="back-bg">
-                        <p class="uno">UNO</p>
-                    </div>
-                </div>
-            </li>
-            <li class="card" data-value="">
-                <div class="back">
-                    <div class="back-bg">
-                        <p class="uno">UNO</p>
-                    </div>
-                </div>
-            </li>
-            <li class="card" data-value="">
-                <div class="back">
-                    <div class="back-bg">
-                        <p class="uno">UNO</p>
-                    </div>
-                </div>
-            </li>
-            </ul>
-        </div>
-    </section>
-    <section class="table">
-        <div class="Deck">
-            <img src="/Juego-de-UNO/Proyecto de web(Uno)/Vista/Imagenes/UNO_Logo.png" class="Logo" alt="Logo">
-        </div>
-        <div class="discard-zone">
-            <ul id="discard-zone"></ul>
-        </div>
-    </section>
-    <section class="Players player-3">
-        <h2>Jugador 3</h2>
-        <div class="players_Cards">
-            <ul class="hand" id="playerhand3">
-            <li class="card" data-value="">
-                <div class="back">
-                    <div class="back-bg">
-                        <p class="uno">UNO</p>
-                    </div>
-                </div>
-            </li>
-            <li class="card" data-value="">
-                <div class="back">
-                    <div class="back-bg">
-                        <p class="uno">UNO</p>
-                    </div>
-                </div>
-            </li>
-            <li class="card" data-value="">
-                <div class="back">
-                    <div class="back-bg">
-                        <p class="uno">UNO</p>
-                    </div>
-                </div>
-            </li>
-            <li class="card" data-value="">
-                <div class="back">
-                    <div class="back-bg">
-                        <p class="uno">UNO</p>
-                    </div>
-                </div>
-            </li>
-            <li class="card" data-value="">
-                <div class="back">
-                    <div class="back-bg">
-                        <p class="uno">UNO</p>
-                    </div>
-                </div>
-            </li>
-            <li class="card" data-value="">
-                <div class="back">
-                    <div class="back-bg">
-                        <p class="uno">UNO</p>
-                    </div>
-                </div>
-            </li>
-            <li class="card" data-value="">
-                <div class="back">
-                    <div class="back-bg">
-                        <p class="uno">UNO</p>
-                    </div>
-                </div>
-            </li>
-            </ul>
-        </div>
-    </section>
-    <section class="Players player-4">
-        <h2>Jugador 4</h2>
-        <div class="players_Cards">
-        <ul class="hand" id="playerhand4">
-            <li class="card" data-value="">
-                <div class="back">
-                    <div class="back-bg">
-                        <p class="uno">UNO</p>
-                    </div>
-                </div>
-            </li>
-            <li class="card" data-value="">
-                <div class="back">
-                    <div class="back-bg">
-                        <p class="uno">UNO</p>
-                    </div>
-                </div>
-            </li>
-            <li class="card" data-value="">
-                <div class="back">
-                    <div class="back-bg">
-                        <p class="uno">UNO</p>
-                    </div>
-                </div>
-            </li>
-            <li class="card" data-value="">
-                <div class="back">
-                    <div class="back-bg">
-                        <p class="uno">UNO</p>
-                    </div>
-                </div>
-            </li>
-            <li class="card" data-value="">
-                <div class="back">
-                    <div class="back-bg">
-                        <p class="uno">UNO</p>
-                    </div>
-                </div>
-            </li>
-            <li class="card" data-value="">
-                <div class="back">
-                    <div class="back-bg">
-                        <p class="uno">UNO</p>
-                    </div>
-                </div>
-            </li>
-            <li class="card" data-value="">
-                <div class="back">
-                    <div class="back-bg">
-                        <p class="uno">UNO</p>
-                    </div>
-                </div>
-            </li>
-            </ul>
-        </div>
-    </section>
-    <button class="uno-logo-button"><img src="/Juego-de-UNO/Proyecto de web(Uno)/Vista/Imagenes/UNO_Logo.png" class="Logo" alt="Logo"></button>
-    <button class="exit">Salir</button>
-</div>
+    <div class="gameContainer" id="gameContainer">
+        <section class="Players player-1">
+            <h2 class="highlight-name" id="player-1-name">Usuario</h2>
+            <div class="players_Cards">
+                <div class="cards-wrapper"></div>
+            </div>
+        </section>
+
+        <section class="Players player-2" id="player-2">
+            <h2 class="highlight-name">CPU-2</h2>
+            <div class="players_Cards">
+                <div class="cards-wrapper"></div>
+            </div>
+        </section>
+
+        <section class="table">
+            <div class="btn-uno-container">
+                <button class="buttonUNO">UNO!</button>
+            </div>
+            <div class="Deck">
+                <img src="/assets/Images/UNO_Logo.png" class="Logo" alt="Logo">
+            </div>
+            <div class="discard-zone" id="discard-zone-container">
+                <ul id="discard-zone"></ul>
+            </div>
+        </section>
+
+        <section class="Players player-3" id="player-3">
+            <h2 class="highlight-name">CPU</h2>
+            <div class="players_Cards">
+                <div class="cards-wrapper"></div>
+            </div>
+        </section>
+
+        <section class="Players player-4" id="player-4">
+            <h2 class="highlight-name">CPU-3</h2>
+            <div class="players_Cards">
+                <div class="cards-wrapper"></div>
+            </div>
+        </section>
+    </div>
+    <script type="module" src="/Js/main.js"></script>
+    <script>
+        // Load username and number of bots from localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            const username = localStorage.getItem('username') || 'Usuario';
+            const numBots = parseInt(localStorage.getItem('numBots')) || 3;
+
+            // Update player 1 name
+            document.getElementById('player-1-name').textContent = username;
+
+            // Hide extra bot sections if numBots < 3
+            if (numBots < 3) {
+                document.getElementById('player-4').style.display = 'none';
+            }
+            if (numBots < 2) {
+                document.getElementById('player-3').style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>

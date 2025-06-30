@@ -62,14 +62,12 @@ button {
     transition: background-color .4s;
 }
 
-/* Fuerza visibilidad del icono del header */
 .header__toggle i {
     color: #3225e7 !important;
     font-size: 1.5rem;
     z-index: 9999;
 }
 
-/* Estilo opcional para hacer más clara la interacción */
 .header__toggle {
     display: inline-flex;
     align-items: center;
@@ -81,37 +79,68 @@ button {
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
+.game-form {
+    position: fixed;
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%);
+    z-index: 1000;
+    margin: 40px;
+}
+
+
+
 .game-form__container {
-    opacity: 0.9;
-    width: 25%;
-    position: relative;
-    right: -70%;
-    top: 100px;
-    height: 870px;
+    opacity: 0.95;
+    width: 520px;
+    max-width: 90vw;
+    min-height: 30vw;
     background-color: #272737;
-    box-shadow: 0 2px 24px hsla(228, 80%, 4%, 1);
+    box-shadow: 0 2px 24px hsla(228, 80%, 4%, 0.5);
+    border-radius: 1rem;
+    padding: 2rem 1.5rem;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-inline: 1.5rem;
-    border-radius: 0.5rem;
-    transition: background-color .3s;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
-.game-form__logo {
-    flex-shrink: 0;
-    position: relative;
-    left: 20%;
-    top: -270px;
-    width: 300px;
-    height: 300px;
-    overflow: hidden;
+.game-form__logo img {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 200x;
+    height: 150px;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
 }
 
-/*Pesonalizacion de la entrada de datos del form*/
+.input-field {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #1e1e2f;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    border-radius: 0.3rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+    border-bottom-color: lightblue;
+}
+
+.input-label {
+    color: white;
+    font-family: sans-serif;
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+
+
+/*---Pesonalizacion de la entrada de datos del form---*/
 
 .game-form__data_input {
     position: relative;
@@ -123,6 +152,29 @@ button {
     color: #fff;
     top: -70%;
     left: -390%;
+}
+
+.input {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+  font-weight: 500;
+  font-size: .8vw;
+  color: #fff;
+  background-color: rgb(28,28,30);
+  box-shadow: 0 0 .4vw rgba(0,0,0,0.5), 0 0 0 .15vw transparent;
+  border-radius: 0.4vw;
+  border: none;
+  outline: none;
+  padding: 0.4vw;
+  max-width: 190px;
+  transition: .4s;
+}
+
+.input:hover {
+  box-shadow: 0 0 0 .15vw rgba(135, 207, 235, 0.186);
+}
+
+.input:focus {
+  box-shadow: 0 0 0 .15vw skyblue;
 }
 
 .text-gmode {
@@ -185,144 +237,306 @@ button {
 /*--------------------------------------------------------*/
 
 
-/*Seleccion del modo de juego*/
+/*---Seleccion del modo de juego---*/
+.radio-container {
+  --main-color: #f7e479;
+  --main-color-opacity: #f7e4791c;
 
-.radio-input {
-    position: relative;
-    top: 20%;
-    left: -200%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .radio-input * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .radio-input label {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 0px 20px;
-    width: 220px;
-    cursor: pointer;
-    height: 50px;
-    position: relative;
-  }
-  
-  .radio-input label::before {
-    position: absolute;
-    content: "";
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 220px;
-    height: 45px;
-    z-index: -1;
-    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    border-radius: 10px;
-    border: 2px solid transparent;
-  }
-  .radio-input label:hover::before {
-    transition: all 0.2s ease;
-    background-color: #2a2e3c;
-  }
-  
-  .radio-input .label:has(input:checked)::before {
-    background-color: #2d3750;
-    border-color: #435dd8;
-    height: 50px;
-  }
-  .radio-input .label .text {
-    color: #fff;
-  }
-  
-  .radio-input .label input[type="radio"] {
-    background-color: #202030;
-    appearance: none;
-    width: 17px;
-    height: 17px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .radio-input .label input[type="radio"]:checked {
-    background-color: #435dd8;
-    -webkit-animation: puls 0.7s forwards;
-    animation: pulse 0.7s forwards;
-  }
-  
-  .radio-input .label input[type="radio"]:before {
-    content: "";
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    transition: all 0.1s cubic-bezier(0.165, 0.84, 0.44, 1);
-    background-color: #fff;
-    transform: scale(0);
-  }
-  
-  .radio-input .label input[type="radio"]:checked::before {
-    transform: scale(1);
-  }
-  
-  @keyframes pulse {
-    0% {
-      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
-    }
-    70% {
-      box-shadow: 0 0 0 8px rgba(255, 255, 255, 0);
-    }
-    100% {
-      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-    }
-  }
+  --total-radio: 3;
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: 0.5rem;
+}
+.radio-container input {
+  cursor: pointer;
+  appearance: none;
+}
+.radio-container .glider-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(27, 27, 27, 1) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  width: 1px;
+}
+.radio-container .glider-container .glider {
+  position: relative;
+  height: calc(100% / var(--total-radio));
+  width: 100%;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0%,
+    var(--main-color) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  transition: transform 0.5s cubic-bezier(0.37, 1.95, 0.66, 0.56);
+}
+.radio-container .glider-container .glider::before {
+  content: "";
+  position: absolute;
+  height: 60%;
+  width: 300%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--main-color);
+  filter: blur(10px);
+}
+.radio-container .glider-container .glider::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 150px;
+  background: linear-gradient(
+    90deg,
+    var(--main-color-opacity) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+.radio-container label {
+  cursor: pointer;
+  padding: 1rem;
+  position: relative;
+  color: grey;
+  transition: all 0.3s ease-in-out;
+}
+
+.radio-container input:checked + label {
+  color: var(--main-color);
+}
+
+.radio-container input:nth-of-type(1):checked ~ .glider-container .glider {
+  transform: translateY(0);
+}
+
+.radio-container input:nth-of-type(2):checked ~ .glider-container .glider {
+  transform: translateY(100%);
+}
+
+.radio-container input:nth-of-type(3):checked ~ .glider-container .glider {
+  transform: translateY(200%);
+}
+
+.radio-container input:nth-of-type(4):checked ~ .glider-container .glider {
+  transform: translateY(300%);
+}
+
+.radio-container input:nth-of-type(5):checked ~ .glider-container .glider {
+  transform: translateY(400%);
+}
+
+.radio-container input:nth-of-type(6):checked ~ .glider-container .glider {
+  transform: translateY(500%);
+}
+
+.radio-container input:nth-of-type(7):checked ~ .glider-container .glider {
+  transform: translateY(600%);
+}
+
+.radio-container input:nth-of-type(8):checked ~ .glider-container .glider {
+  transform: translateY(700%);
+}
+
+.radio-container input:nth-of-type(9):checked ~ .glider-container .glider {
+  transform: translateY(800%);
+}
+
+.radio-container input:nth-of-type(10):checked ~ .glider-container .glider {
+  transform: translateY(900%);
+}
+
 /*--------------------------------------------------------*/
 
 
 /*Boton para comenzar a jugar*/
-button {
-  /* Variables */
-  position: relative;
-  top: 40%;
-  left: -40%;
-  --button_radius: 0.75em;
-  --button_color: #e8e8e8;
-  --button_outline_color: #000000;
-  font-size: 17px;
-  font-weight: bold;
-  border: none;
+.button {
+  --black-700: hsla(0 0% 12% / 1);
+  --border_radius: 9999px;
+  --transtion: 0.3s ease-in-out;
+  --offset: 2px;
+
   cursor: pointer;
-  border-radius: var(--button_radius);
-  background: var(--button_outline_color);
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  transform-origin: center;
+
+  padding: 1rem 2rem;
+  background-color: transparent;
+
+  border: none;
+  border-radius: var(--border_radius);
+  transform: scale(calc(1 + (var(--active, 0) * 0.1)));
+
+  transition: transform var(--transtion);
 }
 
-.button_top {
-  display: block;
-  width: 250px;
-  box-sizing: border-box;
-  border: 2px solid var(--button_outline_color);
-  border-radius: var(--button_radius);
-  padding: 0.75em 1.5em;
-  background: var(--button_color);
-  color: var(--button_outline_color);
-  transform: translateY(-0.2em);
-  transition: transform 0.1s ease;
+.button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 100%;
+  height: 100%;
+  background-color: var(--black-700);
+
+  border-radius: var(--border_radius);
+  box-shadow: inset 0 0.5px hsl(0, 0%, 100%), inset 0 -1px 2px 0 hsl(0, 0%, 0%),
+    0px 4px 10px -4px hsla(0 0% 0% / calc(1 - var(--active, 0))),
+    0 0 0 calc(var(--active, 0) * 0.375rem) hsl(260 97% 50% / 0.75);
+
+  transition: all var(--transtion);
+  z-index: 0;
 }
 
-button:hover .button_top {
-  /* Pull the button upwards when hovered */
-  transform: translateY(-0.33em);
+.button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 100%;
+  height: 100%;
+  background-color: hsla(260 97% 61% / 0.75);
+  background-image: radial-gradient(
+      at 51% 89%,
+      hsla(266, 45%, 74%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 100% 100%, hsla(266, 36%, 60%, 1) 0px, transparent 50%),
+    radial-gradient(at 22% 91%, hsla(266, 36%, 60%, 1) 0px, transparent 50%);
+  background-position: top;
+
+  opacity: var(--active, 0);
+  border-radius: var(--border_radius);
+  transition: opacity var(--transtion);
+  z-index: 2;
 }
 
-button:active .button_top {
-  /* Push the button downwards when pressed */
-  transform: translateY(0);
+.button:is(:hover, :focus-visible) {
+  --active: 1;
 }
+.button:active {
+  transform: scale(1);
+}
+
+.button .dots_border {
+  --size_border: calc(100% + 2px);
+
+  overflow: hidden;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: var(--size_border);
+  height: var(--size_border);
+  background-color: transparent;
+
+  border-radius: var(--border_radius);
+  z-index: -10;
+}
+
+.button .dots_border::before {
+  content: "";
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: left;
+  transform: rotate(0deg);
+
+  width: 100%;
+  height: 2rem;
+  background-color: white;
+
+  mask: linear-gradient(transparent 0%, white 120%);
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.button .sparkle {
+  position: relative;
+  z-index: 10;
+
+  width: 1.75rem;
+}
+
+.button .sparkle .path {
+  fill: currentColor;
+  stroke: currentColor;
+
+  transform-origin: center;
+
+  color: hsl(0, 0%, 100%);
+}
+
+.button:is(:hover, :focus) .sparkle .path {
+  animation: path 1.5s linear 0.5s infinite;
+}
+
+.button .sparkle .path:nth-child(1) {
+  --scale_path_1: 1.2;
+}
+.button .sparkle .path:nth-child(2) {
+  --scale_path_2: 1.2;
+}
+.button .sparkle .path:nth-child(3) {
+  --scale_path_3: 1.2;
+}
+
+@keyframes path {
+  0%,
+  34%,
+  71%,
+  100% {
+    transform: scale(1);
+  }
+  17% {
+    transform: scale(var(--scale_path_1, 1));
+  }
+  49% {
+    transform: scale(var(--scale_path_2, 1));
+  }
+  83% {
+    transform: scale(var(--scale_path_3, 1));
+  }
+}
+
+.button .text_button {
+  position: relative;
+  z-index: 10;
+
+  background-image: linear-gradient(
+    90deg,
+    hsla(0 0% 100% / 1) 0%,
+    hsla(0 0% 100% / var(--active, 0)) 120%
+  );
+  background-clip: text;
+
+  font-size: 1rem;
+  color: transparent;
+}
+
 
 /*--------------------------------------------------------*/
 
@@ -345,8 +559,6 @@ button:active .button_top {
 
 /*Personalizacion de boton de change theme mode del sidebar*/
 
-/* The switch - the box around the slider */
-
 .theme-toggle {
     position: relative;
     left: 5%;
@@ -364,14 +576,12 @@ button:active .button_top {
     height: 2em;
 }
 
-/* Hide default HTML checkbox */
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* The slider */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -519,8 +729,6 @@ button:active .button_top {
     font-family: "Nunito Sans" system-ui;
 }
 
-
-/*Estos dos "active-link" son los que personalizan las opciones en las que uno hizo click y esta en esa seccion de pagina*/
 .active-link {
     color: hsl(228, 85%, 63%);
 }
@@ -532,4 +740,78 @@ button:active .button_top {
     width: 3px;
     height: 20px;
     background-color: hsl(228, 85%, 63%);
+}
+
+.card {
+  width: 330px;
+  height: 80px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  background-color: #ffffff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 15px;
+}
+.wave {
+  position: absolute;
+  transform: rotate(90deg);
+  left: -31px;
+  top: 32px;
+  width: 80px;
+  fill: #fc0c0c3a;
+}
+.icon-container {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fc0c0c48;
+  border-radius: 50%;
+  margin-left: 8px;
+}
+.icon {
+  width: 17px;
+  height: 17px;
+  color: #d10d0d;
+}
+.message-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex-grow: 1;
+}
+.message-text,
+.sub-text {
+  margin: 0;
+  cursor: default;
+}
+.message-text {
+  color: #d10d0d;
+  font-size: 17px;
+  font-weight: 700;
+}
+.sub-text {
+  font-size: 14px;
+  color: #555;
+}
+.cross-icon {
+  width: 18px;
+  height: 18px;
+  color: #555;
+  cursor: pointer;
+}
+
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: none; /* Oculto por defecto */
+  z-index: 9999;
 }
