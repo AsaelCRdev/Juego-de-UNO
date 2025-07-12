@@ -1,0 +1,934 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --board-background: #1F3C88;
+    --red-card: #eb1f30;
+    --green-card: #0fcf66;
+    --blue-card: #0fb6f8;
+    --yellow-card: #ebd03a;
+    --card-border: #000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    list-style: none;
+}
+
+body {
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: var(--board-background);
+}
+
+h2 {
+    color: #e6e4e4;
+}
+
+/*---Jugadores y tablero central----*/
+
+.gameContainer {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 0px;
+    width: 100vw;
+    max-width: auto;
+    min-height: 90vh;
+    margin: auto;
+    padding: 0px;
+}
+
+.Players {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3.5em;
+    max-height: clamp(300px, 40vmin, 400px);
+    /*overflow: hidden;*/
+}
+
+.player-1 { grid-column: 4 / span 2; grid-row: 7 / span 2; gap: 10px;}
+.player-2 { grid-column: 7 / span 2; grid-row: 5 / span 2; gap: 10px; margin-left: -150px; transform: rotate(-90deg); transform-origin: center; display: flex; flex-direction: column; align-items: center; justify-content: center; justify-self: start; position: relative;}
+.player-3 { grid-column: 4 / span 2; grid-row: 1 / span 2; gap: 10px;}
+.player-4 { grid-column: 1 / span 2; grid-row: 5 / span 2; gap: 10px; margin-right: 0px; transform: rotate(90deg); transform-origin: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+.table {
+    grid-column: 3 / span 4;
+    grid-row: 4 / span 3;
+    background: radial-gradient(circle, #245D26 10%, #1B3820 80%);
+    border: .5vw solid #d87c3a;
+    border-radius: 1vw;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "btn-uno mazo discard"
+        "btn-uno mazo discard";
+    gap: 1vw;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 180px;
+    z-index: 1;
+}
+
+.discard-zone, .Deck {
+    width: 10vw;
+    min-width: 70px;
+    max-width: 120px;
+    height: 25vh;
+    min-height: 160px;
+    max-height: 260px;
+    border-radius: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.discard-zone {
+    grid-area: discard;
+    min-width: 150px;
+    min-height: 240px;
+    list-style: none;
+    border: 2px solid #bbb0b1;
+    background: #fff;
+    pointer-events: none;
+}
+
+#discard-zone {
+    font-size: clamp(12px, 2vw, 22px);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    height: 100%;
+}
+
+.card-preview {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 800px;
+}
+
+#discard-zone .card-container:hover .card {
+    transform: none;
+}
+
+.Deck {
+    grid-area: mazo;
+    min-width: 150px;
+    min-height: 240px;
+    background-color: var(--red-card);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.Deck:active {
+    transform: scale(1.2);
+}
+
+.Deck .Logo {
+    width: 70%;
+    height: auto;
+}
+
+.cards-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(5px, 1vmin, 10px);
+    max-height: clamp(250px, 35vmin, 320px);
+    
+}
+
+.first-row,
+.second-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(5px, 1vmin, 10px);
+    max-width: 100%;
+}
+
+.player-2 .first-row .card-container,
+.player-2 .second-row .card-container,
+.player-3 .first-row .card-container,
+.player-3 .second-row .card-container,
+.player-4 .first-row .card-container,
+.player-4 .second-row .card-container {
+    position: relative;
+    margin-left: clamp(-40px, -6vmin, -60px);
+    z-index: 1;
+    margin-bottom: -100px;
+}
+
+.player-2 .first-row .card-container:first-child,
+.player-2 .second-row .card-container:first-child,
+.player-3 .first-row .card-container:first-child,
+.player-3 .second-row .card-container:first-child,
+.player-4 .first-row .card-container:first-child,
+.player-4 .second-row .card-container:first-child {
+    margin-left: 0;
+}
+
+.current-player {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 7px solid rgb(219, 196, 20);
+    height: 50%;
+    width: 50%;
+    padding: 0px;
+    box-shadow: 0 0 20px white;
+    transition: all 0.3s ease;
+}
+
+/*-------------------------------------------------*/
+
+/*---Notificaciones----*/
+.notifications {
+    grid-column: 3 / span 4;
+    grid-row: 3 / span 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.notification {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--yellow-card);
+    padding: clamp(8px, 1.5vw, 12px);
+    margin: clamp(4px, 1vw, 6px);
+    border-radius: 8px;
+    font-size: clamp(14px, 2vw, 18px);
+    font-weight: 500;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    animation: fadeInOut 3s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(10px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-10px); }
+}
+/*-------------------------------------------------*/
+
+/*---Marcador (Scoreboard)----*/
+.scoreboard {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    color: var(--yellow-card);
+    font-size: clamp(16px, 2.2vw, 20px);
+    font-weight: 600;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+/*-------------------------------------------------*/
+
+/*---Indicador de turno---*/
+.turn-indicator {
+    grid-column: 7 / span 2;
+    grid-row: 1 / span 1;
+    color: var(--yellow-card);
+    font-size: clamp(16px, 2.2vw, 20px);
+    font-weight: 600;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+/*-------------------------------------------------*/
+
+/*---Botón UNO----*/
+.btn-uno-container {
+    grid-area: btn-uno;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    place-self: center;
+    width: 4.5em;
+    height: 4em;
+    background-color: #9e0707;
+    overflow: hidden;
+    border-radius: 100%;
+    scale: 2;
+    box-shadow: 0 0.5em #9e0707;
+    transition: all 0.1s ease;
+    filter: drop-shadow(0 6px 2px #9e0707);
+    border: 1px solid #9e0707;
+}
+
+.buttonUNO {
+    font-weight: 800;
+    cursor: pointer;
+    position: absolute;
+    text-transform: uppercase;
+    height: 110%;
+    width: 110%;
+    background-color: #c44141;
+    color: white;
+}
+
+.btn-uno-container:has(.buttonUNO:active) {
+    box-shadow: none;
+    margin-top: 2em;
+    filter: drop-shadow(0 3px 1px #4836bbbe);
+}
+
+/*-------------------------------------------------*/
+
+/*---Cartas----*/
+.card-container.bot-card:hover .card {
+    transform: none;
+}
+
+.card-container {
+    perspective: 800px;
+    position: relative;
+}
+
+.card {
+    position: relative;
+    width: 150px;
+    height: 240px;
+    background: #fffffd;
+    border-radius: 1em;
+    box-shadow: 0 0 6px -4px black;
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+    pointer-events: none;
+    user-select: none;
+}
+
+.card-fly-to-discard {
+    position: absolute;
+    z-index: 100;
+    transition: transform 0.8s ease-in-out;
+}
+
+.card-container .card:not(.hidden-card):not(.bot-card) {
+    transform: rotateY(180deg);
+}
+
+.card-container:hover .card:not(.hidden-card):not(.bot-card) {
+    transform: translateY(-50px) rotateY(180deg);
+}
+
+.card-container:hover .card.hidden-card {
+    transform: none;
+}
+
+#discard-zone .card-container:hover .card {
+    transform: none;
+}
+
+.back {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    inset: 0.7em;
+    border-radius: 1.25em;
+    background: #191f1f;
+    overflow: hidden;
+}
+
+.back .text {
+    position: absolute;
+    font-size: 3.5em;
+    font-weight: 800;
+    color: #e4c713;
+    transform-origin: center;
+    transform: rotate(-15deg) translateX(5px);
+    text-shadow:
+        2px 2px #f1e8ad,
+        2px 1px #f1e8ad,
+        2px 0px #f1e8ad,
+        2px -1px #f1e8ad,
+        2px -2px #f1e8ad,
+        1px -2px #f1e8ad,
+        0px -2px #f1e8ad,
+        -1px -2px #f1e8ad,
+        -2px -2px #f1e8ad,
+        -2px -1px #f1e8ad,
+        -2px 0px #f1e8ad,
+        -2px 1px #f1e8ad,
+        -2px 2px #f1e8ad,
+        -12px 10px #191f1f,
+        -10px 10px #191f1f,
+        -9px 9.428571429px #191f1f,
+        -8px 8.857142857px #191f1f,
+        -7px 8.285714286px #191f1f,
+        -6px 7.714285714px #191f1f,
+        -5px 7.142857143px #191f1f,
+        -4px 6.571428572px #191f1f,
+        -3px 6px #191f1f,
+        -2px 5.428571429px #191f1f,
+        -1px 4.857142857px #191f1f,
+        0px 4.285714286px #191f1f,
+        1px 3.714285715px #191f1f,
+        2px 3.142857143px #191f1f,
+        3px 2.571428572px #191f1f,
+        4px 2px #191f1f,
+        4px -4px #191f1f,
+        -4px -4px #191f1f,
+        -5px -3px #191f1f,
+        -6px -2px #191f1f,
+        -7px -1px #191f1f,
+        -8px 0px #191f1f,
+        -9px 1px #191f1f,
+        -10px 2px #191f1f,
+        -11px 3px #191f1f,
+        -12px 4px #191f1f,
+        -14px 4px #fffffd,
+        -13px 3px #fffffd,
+        -12px 2px #fffffd,
+        -11px 1px #fffffd,
+        -10px 0px #fffffd,
+        -9px -1px #fffffd,
+        -8px -2px #fffffd,
+        -7px -3px #fffffd,
+        -6px -4px #fffffd,
+        -5px -5px #fffffd,
+        -4px -6px #fffffd,
+        -3px -6px #fffffd,
+        0px -6px #fffffd,
+        3px -6px #fffffd,
+        6px -6px #fffffd,
+        -14px 12px #fffffd,
+        -8px 12px #fffffd,
+        -7px 11.5px #fffffd,
+        -6px 11px #fffffd,
+        -5px 10.5px #fffffd,
+        -4px 10px #fffffd,
+        -3px 9.5px #fffffd,
+        -2px 9px #fffffd,
+        -1px 8.5px #fffffd,
+        0px 8px #fffffd,
+        1px 7.5px #fffffd,
+        2px 7px #fffffd,
+        3px 6.5px #fffffd,
+        4px 6px #fffffd,
+        5px 5.5px #fffffd,
+        6px 4px #fffffd;
+}
+
+.hidden-card .front {
+    display: none;
+}
+
+.red {
+    position: absolute;
+    background: var(--red-card);
+    inset: 0.5em;
+    border-radius: 100%;
+    transform-origin: center;
+    transform: scale(0.8) skewX(-22.5deg);
+    z-index: 0;
+}
+
+.green {
+    position: absolute;
+    background: var(--green-card);
+    inset: 0;
+    border-radius: 100%;
+    transform-origin: center;
+    transform: scale(0.875) skewX(-22.5deg);
+}
+
+.blue {
+    position: absolute;
+    background: var(--blue-card);
+    inset: 0;
+    border-radius: 100%;
+    transform-origin: center;
+    transform: scale(0.875) skewX(-22.5deg);
+}
+
+.yellow {
+    position: absolute;
+    background: var(--yellow-card);
+    inset: 0;
+    border-radius: 100%;
+    transform-origin: center;
+    transform: scale(0.875) skewX(-22.5deg);
+}
+
+.black {
+    position: absolute;
+    background: rgb(0, 0, 0);
+    inset: 0;
+    border-radius: 100%;
+    transform-origin: center;
+    transform: scale(0.875) skewX(-22.5deg);
+}
+
+.white {
+    position: absolute;
+    background: #fffffd;
+    inset: 0;
+    border-radius: 100%;
+    transform-origin: center;
+    transform: scale(0.875) skewX(-22.5deg);
+    z-index: 0;
+}
+
+.front-red {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    inset: 0.7em;
+    border-radius: 1.25em;
+    background: var(--red-card);
+    overflow: hidden;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.front-red .red {
+    border: 0.7em solid #fffffd;
+    transform: scale(0.92, 0.875) skewX(-22.5deg);
+}
+
+.front-green {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    inset: 0.7em;
+    border-radius: 1.25em;
+    background: var(--green-card);
+    overflow: hidden;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.front-green .green {
+    border: 0.7em solid #fffffd;
+    transform: scale(0.92, 0.875) skewX(-22.5deg);
+}
+
+.front-blue {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    inset: 0.7em;
+    border-radius: 1.25em;
+    background: var(--blue-card);
+    overflow: hidden;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.front-blue .blue {
+    border: 0.7em solid #fffffd;
+    transform: scale(0.92, 0.875) skewX(-22.5deg);
+}
+
+.front-yellow {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    inset: 0.7em;
+    border-radius: 1.25em;
+    background: var(--yellow-card);
+    overflow: hidden;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.front-yellow .yellow {
+    border: 0.7em solid #fffffd;
+    transform: scale(0.92, 0.875) skewX(-22.5deg);
+}
+
+.front-black {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    inset: 0.7em;
+    border-radius: 1.25em;
+    background: rgb(0, 0, 0);
+    overflow: hidden;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.front-black .black {
+    border: 0.7em solid #ffffff;
+    background-color: white;
+    transform: scale(0.92, 0.875) skewX(-22.5deg);
+}
+
+.text-center {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    position: absolute;
+    width: 15em;
+    color: white;
+    text-align: center;
+    font-size: 6em;
+    text-shadow:
+        -7px -3px 0 #000,
+        -1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
+.text-top {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    position: absolute;
+    top: 0.2em;
+    left: 0.2em;
+    width: 10em;
+    color: white;
+    font-size: 2rem;
+    text-shadow:
+        -4px -3px 0 #000,
+        -1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
+.text-bottom {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    position: absolute;
+    bottom: 0em;
+    right: 0em;
+    width: 1em;
+    color: white;
+    font-size: 2rem;
+    text-shadow:
+        -4px -3px 0 #000,
+        -1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
+/*---Responsive----*/
+@media (max-width: 1000px) {
+    .gameContainer {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(10, 1fr);
+        gap: 2vw;
+        width: 99vw;
+    }
+    .player-1 { grid-column: 2 / span 2; grid-row: 9 / span 2; }
+    .player-2 { grid-column: 4 / span 1; grid-row: 5 / span 2; }
+    .player-3 { grid-column: 2 / span 2; grid-row: 1 / span 2; }
+    .player-4 { grid-column: 1 / span 1; grid-row: 5 / span 2; }
+    .table { grid-column: 2 / span 2; grid-row: 4 / span 3; }
+    .notifications { grid-column: 2 / span 2; grid-row: 3 / span 1; }
+    .scoreboard { grid-column: 1 / span 1; grid-row: 1 / span 1; }
+    .turn-indicator { grid-column: 4 / span 1; grid-row: 1 / span 1; }
+
+    .discard-zone, .Deck {
+        width: clamp(70px, 22vw, 140px);
+        height: clamp(100px, 18vh, 200px);
+    }
+
+    .card {
+        width: clamp(90px, 16vw, 130px);
+        height: clamp(145px, 26vw, 210px);
+    }
+
+    .card-fly-to-discard {
+        width: clamp(90px, 16vw, 130px);
+        height: clamp(145px, 26vw, 210px);
+    }
+
+    .card::before {
+        width: clamp(90px, 16vw, 130px);
+        height: clamp(50px, 9vw, 70px);
+    }
+
+    .back .text {
+        font-size: clamp(2.5em, 8vw, 4em);
+    }
+
+    .text-center {
+        font-size: clamp(6em, 15vw, 8em);
+    }
+
+    .text-top, .text-bottom {
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+    }
+
+    .cards-wrapper {
+        gap: clamp(5px, 2vw, 8px);
+    }
+
+    .first-row,
+    .second-row {
+        gap: clamp(5px, 2vw, 8px);
+    }
+
+    .notification {
+        font-size: clamp(12px, 1.8vw, 16px);
+        padding: clamp(6px, 1.2vw, 10px);
+        margin: clamp(3px, 0.8vw, 5px);
+    }
+
+    .red {
+        inset: 0.4em;
+        transform: scale(0.75) skewX(-22.5deg);
+    }
+}
+
+@media (max-width: 700px) {
+    .gameContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2vw;
+        width: 100vw;
+        min-width: 0;
+    }
+
+    .Players, .table {
+        width: 98vw;
+        min-width: 0;
+        max-width: 100vw;
+        margin: 0 auto;
+    }
+
+    .notifications {
+        width: 98vw;
+        margin: 10px auto;
+    }
+
+    .scoreboard, .turn-indicator {
+        width: 98vw;
+        margin: 10px auto;
+        font-size: clamp(14px, 2vw, 18px);
+    }
+
+    .uno-logo-button, .exit {
+        width: 98vw;
+        height: 36px;
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .table {
+        flex-direction: column;
+        border-width: 4px;
+        padding: 8px 0;
+        min-height: 90px;
+    }
+
+    .discard-zone, .Deck {
+        width: clamp(50px, 60vw, 100px);
+        height: clamp(60px, 14vh, 120px);
+        min-width: 40px;
+        min-height: 40px;
+        max-width: 120px;
+        max-height: 120px;
+    }
+
+    .card {
+        width: clamp(60px, 20vw, 100px);
+        height: clamp(95px, 32vw, 160px);
+        border-radius: 0.6em;
+    }
+
+    .card-fly-to-discard {
+        width: clamp(60px, 20vw, 100px);
+        height: clamp(95px, 32vw, 160px);
+    }
+
+    .card::before {
+        width: clamp(60px, 20vw, 100px);
+        height: clamp(32px, 11vw, 55px);
+        filter: blur(10px);
+    }
+
+    .back {
+        inset: 0.4em;
+        border-radius: 0.8em;
+    }
+
+    .back .text {
+        font-size: clamp(1.8em, 6vw, 3em);
+        transform: rotate(-15deg) translateX(2px);
+    }
+
+    .text-center {
+        font-size: clamp(4em, 12vw, 6em);
+    }
+
+    .text-top {
+        font-size: clamp(1.2rem, 3.5vw, 2rem);
+        top: 0.1em;
+        left: 0.1em;
+    }
+
+    .text-bottom {
+        font-size: clamp(1.2rem, 3.5vw, 2rem);
+        bottom: -0.1em;
+        right: -0.1em;
+    }
+
+    .cards-wrapper {
+        gap: clamp(3px, 1.5vw, 6px);
+        flex-wrap: wrap;
+    }
+
+    .first-row,
+    .second-row {
+        gap: clamp(3px, 1.5vw, 6px);
+        flex-wrap: wrap;
+    }
+
+    .front-red, .front-green, .front-blue, .front-yellow, .front-black {
+        inset: 0.4em;
+        border-radius: 0.8em;
+    }
+
+    .front-red .red, .front-green .green, .front-blue .blue,
+    .front-yellow .yellow, .front-black .black {
+        border-width: 0.4em;
+    }
+
+    .notification {
+        font-size: clamp(10px, 1.5vw, 14px);
+        padding: clamp(5px, 1vw, 8px);
+        margin: clamp(2px, 0.5vw, 4px);
+    }
+
+    .red {
+        inset: 0.3em;
+        transform: scale(0.7) skewX(-22.5deg);
+    }
+}
+
+@media (max-width: 480px) {
+    .uno-logo-button, .exit {
+        height: 28px;
+        font-size: 0.9rem;
+    }
+
+    .table {
+        border-width: 2px;
+        min-height: 40px;
+    }
+
+    .discard-zone, .Deck {
+        width: clamp(30px, 80vw, 80px);
+        height: clamp(30px, 10vh, 60px);
+        min-width: 30px;
+        min-height: 30px;
+        max-width: 80px;
+        max-height: 60px;
+    }
+
+    .card {
+        width: clamp(45px, 18vw, 75px);
+        height: clamp(72px, 28vw, 120px);
+        border-radius: 0.4em;
+    }
+
+    .card-fly-to-discard {
+        width: clamp(45px, 18vw, 75px);
+        height: clamp(72px, 28vw, 120px);
+    }
+
+    .card::before {
+        width: clamp(45px, 18vw, 75px);
+        height: clamp(25px, 9vw, 42px);
+        filter: blur(6px);
+    }
+
+    .back {
+        inset: 0.3em;
+        border-radius: 0.6em;
+    }
+
+    .back .text {
+        font-size: clamp(1.2em, 4.5vw, 2.2em);
+        transform: rotate(-15deg) translateX(1px);
+    }
+
+    .text-center {
+        font-size: clamp(2.5em, 9vw, 4.5em);
+    }
+
+    .text-top {
+        font-size: clamp(0.9rem, 2.8vw, 1.5rem);
+        top: 0.05em;
+        left: 0.05em;
+    }
+
+    .text-bottom {
+        font-size: clamp(0.9rem, 2.8vw, 1.5rem);
+        bottom: -0.05em;
+        right: -0.05em;
+    }
+
+    .cards-wrapper {
+        gap: clamp(2px, 1vw, 4px);
+    }
+
+    .first-row,
+    .second-row {
+        gap: clamp(2px, 1vw, 4px);
+    }
+
+    .front-red, .front-green, .front-blue, .front-yellow, .front-black {
+        inset: 0.3em;
+        border-radius: 0.6em;
+    }
+
+    .front-red .red, .front-green .green, .front-blue .blue,
+    .front-yellow .yellow, .front-black .black {
+        border-width: 0.3em;
+    }
+
+    .notification {
+        font-size: clamp(8px, 1.2vw, 12px);
+        padding: clamp(4px, 0.8vw, 6px);
+        margin: clamp(2px, 0.5vw, 3px);
+    }
+
+    .red {
+        inset: 0.2em;
+        transform: scale(0.65) skewX(-22.5deg);
+    }
+}
+
+/*---------------------------------------------------------------*/
