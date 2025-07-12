@@ -29,7 +29,7 @@ export function setupCardListeners() {
         const cardRect = cardContainer.getBoundingClientRect();
         const discardRect = discardZone.getBoundingClientRect();
 
-        // Calcular la traslación de la carta
+        //Calcular la traslación de la carta
         const deltaX = discardRect.left - cardRect.left + (discardRect.width - cardRect.width) / 2;
         const deltaY = discardRect.top - cardRect.top + (discardRect.height - cardRect.height) / 2;
 
@@ -52,7 +52,7 @@ export function setupCardListeners() {
                 const response = await playCard(gameState.gameId, card);
                 if (response) {
                     //Actualizar la "discard-zone" despues de la animacion de juego de carta y la WebSocket se encarga de las actualizaciones del juego
-                    updateDiscardZone(card);
+                    //updateDiscardZone(card);
                     //Eliminar la carta del DOM
                     cardContainer.remove();
                 } else {

@@ -98,9 +98,9 @@ export function showWinnerModal(player) {
             gameState.currentColor = gameStateResponse.currentColor;
             gameState.finished = gameStateResponse.finished;
 
-            // Reconectar WebSocket
+            //Reconectar WebSocket
             connectWebSocket(gameStateResponse.gameId); //Conexión al WebSocket
-            // Actualizar la UI
+            //Actualizar la UI
             renderAllPlayersHands(); //Renderizar las cartas de todos los jugadores
             updateDiscardZone(gameStateResponse.discardPile); //Se actualiza la "discard-zone"; se vuelve a colocar una carta "random" a la "discard-zone" para empezar el juego
             highlightCurrentPlayer(); //Se destaca el jugador a mover la carta

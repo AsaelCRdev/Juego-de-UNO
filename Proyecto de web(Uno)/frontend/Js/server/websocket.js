@@ -2,7 +2,7 @@ import { gameState, updateDiscardZone, showWildColorPicker } from '../gameState.
 import { renderAllPlayersHands, highlightCurrentPlayer } from '../cards/renderCards.js';
 import { showWinnerModal } from '../ui/ui.js';
 let socket;
-let gameId;
+let gameId; //Variable para almacenar el gameId
 
 export function connectWebSocket(gId) {
     //Cerrar WebSocket existente si está abierto
@@ -101,7 +101,7 @@ function handleServerUpdate(data) {
 function updateGameState(serverState) {
     console.log('Actualizando gameState:', JSON.stringify(serverState, null, 2)); //Depurar
     
-    // Actualizar propiedades básicas
+    //Actualizar propiedades básicas
     gameState.gameId = serverState.gameId;
     gameState.finished = serverState.finished;
     gameState.discardPile = [serverState.discardPile];

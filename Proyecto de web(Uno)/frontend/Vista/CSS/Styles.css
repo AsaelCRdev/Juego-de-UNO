@@ -192,47 +192,47 @@ button {
     left: -390%;
     margin: 20px 0 40px;
     width: 300px;
-  }
-  
-  .form-control input {
-    position: relative;
-    top: -50px;
-    background-color: transparent;
-    border: 0;
-    border-bottom: 2px #fff solid;
-    display: block;
-    width: 100%;
-    padding: 15px 0;
-    font-size: 18px;
-    color: #fff;
-  }
-  
-  .form-control input:focus,
-  .form-control input:valid {
-    outline: 0;
-    border-bottom-color: lightblue;
-  }
-  
-  .form-control label {
-    position: absolute;
-    top: -30px;
-    left: 0;
-    pointer-events: none;
-  }
-  
-  .form-control label span {
-    display: inline-block;
-    font-size: 18px;
-    min-width: 5px;
-    color: #fff;
-    transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-  
-  .form-control input:focus+label span,
-  .form-control input:valid+label span {
-    color: lightblue;
-    transform: translateY(-30px);
-  }
+}
+
+.form-control input {
+  position: relative;
+  top: -50px;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px #fff solid;
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  font-size: 18px;
+  color: #fff;
+}
+
+.form-control input:focus,
+.form-control input:valid {
+  outline: 0;
+  border-bottom-color: lightblue;
+}
+
+.form-control label {
+  position: absolute;
+  top: -30px;
+  left: 0;
+  pointer-events: none;
+}
+
+.form-control label span {
+  display: inline-block;
+  font-size: 18px;
+  min-width: 5px;
+  color: #fff;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-control input:focus+label span,
+.form-control input:valid+label span {
+  color: lightblue;
+  transform: translateY(-30px);
+}
 
 /*--------------------------------------------------------*/
 
@@ -556,69 +556,6 @@ button {
     border-radius: 1rem;
     transition: left .4s, background-color .4s, width .4s;
 }
-
-/*Personalizacion de boton de change theme mode del sidebar*/
-
-.theme-toggle {
-    position: relative;
-    left: 5%;
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Espacio entre el sol (icono) y el change theme */
-    font-size: 32px;
-}
-
-.switch {
-    font-size: 17px;
-    position: relative;
-    display: inline-block;
-    width: 3.5em;
-    height: 2em;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgb(75, 73, 74);
-  transition: 0.4s;
-  border-radius: 30px;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 1.4em;
-  width: 1.4em;
-  border-radius: 20px;
-  left: 0.3em;
-  bottom: 0.3em;
-  background-color: black;
-  box-shadow: inset 8px -4px 0 0 white;
-  transition: 0.4s;
-}
-
-.switch input:checked + .slider {
-  background-color: #2196f3;
-}
-
-.switch input:checked + .slider:before {
-  transform: translateX(1.5em);
-  background-color: yellow;
-  box-shadow: none;
-}
-  
-
-/*--------------------------------------------------------------*/
 
 .sidebar__container, .sidebar__content {
     display: flex;

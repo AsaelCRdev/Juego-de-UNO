@@ -53,14 +53,14 @@ export function createCardElement(card) {
     const textBottom = document.createElement('div');
     textBottom.className = 'text-bottom';
 
-    // Añadir clase hidden-card y omitir contenido para cartas hidden
+    //Añadir clase hidden-card (que no se puedan ver las cartas de los demás jugadores) y omitir contenido para cartas hidden
     if (card.color === 'hidden') {
         cardDiv.classList.add('hidden-card');
         textTop.textContent = '';
         textCenter.textContent = '';
         textBottom.textContent = '';
-    } else {
-        // Mostrar imágenes según el tipo de carta (más que todo para las Wild)
+    } else { //Dibujar las cartas del jugador
+        //Mostrar imágenes según el tipo de carta (más que todo para las Wild)
         if (card.value === 'draw2') {
             textTop.innerHTML = `<img src="/Proyecto de web(Uno)/frontend/assets/Images/plustwo-cardsymbol.png" width="50" height="50" alt="Draw Two">`;
             textCenter.innerHTML = `<img src="/Proyecto de web(Uno)/frontend/assets/Images/drawtwocard-cardsymbol.png" width="100" height="100" alt="Draw Two">`;
@@ -82,14 +82,14 @@ export function createCardElement(card) {
             textCenter.innerHTML = `<img src="/Proyecto de web(Uno)/frontend/assets/Images/4cards-cardsymbol.png" width="150" height="150" alt="Wild +4">`;
             textBottom.innerHTML = `<img src="/Proyecto de web(Uno)/frontend/assets/Images/plusfour-cardsymbol-inverted.png" width="50" height="50" alt="Wild +4">`;
         } else {
-            // Para cartas normales (números)
+            //Para cartas normales (números)
             textTop.textContent = card.value;
             textCenter.textContent = card.value;
             textBottom.textContent = card.value;
         }
     }
 
-    // Construir la carta completa
+    //Construir la carta completa
     front.appendChild(colorDiv);
     front.appendChild(textTop);
     front.appendChild(textCenter);
