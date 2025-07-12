@@ -1,5 +1,5 @@
 import { startNewGame } from './server/api.js';
-import { connectWebSocket } from './server/websocket.js';
+import { connectWebSocket, updateScoreboard } from './server/websocket.js';
 import { renderAllPlayersHands } from './cards/renderCards.js';
 import { setupCardListeners } from './playerActions.js';
 import { gameState, updateDiscardZone } from './gameState.js';
@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log('Respuesta de startNewGame:', gameStateResponse); //Depurar
     
     if (gameStateResponse) {
+        const username = localStorage.getItem('username') || 'Jugador 1'; //Se obtiene el nombre del jugador por localStorage. 'Jugador 1' es respaldo en caso de que no haya nombre
         //Actualizar gameState con el estado inicial
         gameState.gameId = gameStateResponse.gameId;
         //Inicializar los jugadores con sus datos en un array 
@@ -17,7 +18,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             { id: 1, name: 'Jugador 1', hand: gameStateResponse.clientCards, isBot: false },
             ...gameStateResponse.otherPlayers.map((p, i) => ({
                 id: i + 2,
-                name: p.name,
+                name: p.name || `CPU-${i+1}`,
                 hand: Array(p.count).fill({ id: 'hidden', color: 'hidden', type: 'hidden', value: 'hidden' }),
                 isBot: true
             }))
@@ -29,7 +30,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         gameState.currentColor = gameStateResponse.currentColor; //Inicializar el color actual en juego
 
         console.log('gameState después de inicialización:', gameState); //Depurar
-
+        updateScoreboard(gameState.scores); //Llamada para inicializar los puntajes de los jugadores
         connectWebSocket(gameStateResponse.gameId); //Conexión al WebSocket
         renderAllPlayersHands(); //Renderizar las cartas de todos los jugadores
         setupCardListeners();

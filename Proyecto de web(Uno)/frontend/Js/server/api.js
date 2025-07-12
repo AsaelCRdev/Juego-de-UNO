@@ -1,9 +1,10 @@
 export async function startNewGame() { //Iniciar un nuevo juego
     try {
+        const username = localStorage.getItem('username') || 'Jugador 1'; //Obtener el nombre del usuario por el localStorage o usar "Jugador 1" como respaldo
         const response = await fetch('http://localhost:3001/start', {
             method: 'POST', //Solicitud POST al endpoint /start
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({}) //Envía un cuerpo vacío para saber la respuesta del servidor
+            body: JSON.stringify({username}) //Envía un cuerpo con el nombre de usuario al backend
         });
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         return await response.json();
@@ -54,7 +55,7 @@ export async function callUno(gameId) { //Decir UNO
         return await response.json();
     } catch (error) { //Manejo de error
         console.error('Error al presionar UNO:', error); //Depurar
-        alert('No funcionó como esperaba el botón de UNO. Por favor, inténtelo de nuevo.');
+        alert('No puedes presionar todavía el botón de UNO.');
     }
 }
 

@@ -40,7 +40,7 @@ function handleServerUpdate(data) {
     console.log('Manejando actualización del servidor:', JSON.stringify(data, null, 2)); //Depurar
     switch (data.type) {
         case 'subscribed':
-            console.log(`Subscribed to game ${data.gameId}`); //Depurar
+            console.log(`Suscrito al juego con id: ${data.gameId}`); //Depurar
             updateTurnIndicator(); //Actualizar los turnos
             break;
         case 'client_play':
@@ -146,10 +146,13 @@ function updateGameState(serverState) {
 
 //Función para actualizar la "scoreboard" o el marcador de puntajes de los jugadores
 export function updateScoreboard(scores) {
-    console.log('Actualizando marcador:', scores); //Depurar
+    console.log('Actualizando marcador:', scores);
     const scoreboard = document.querySelector('.scoreboard');
     if (scoreboard && gameState.players) {
-        scoreboard.innerHTML = gameState.players.map(p => `<div>${p.name}: ${scores[p.id - 1] || 0}</div>`).join('');
+        scoreboard.innerHTML = `
+            <h2 style="color: #d87c3a; margin-bottom: 1em;">Marcador</h2>
+            ${gameState.players.map(p => `<div>${p.name}: ${scores[p.id - 1] || 0}</div>`).join('')}
+        `;
     }
 }
 
