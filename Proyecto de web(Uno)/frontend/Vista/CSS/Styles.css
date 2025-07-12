@@ -94,7 +94,7 @@ button {
     opacity: 0.95;
     width: 520px;
     max-width: 90vw;
-    min-height: 30vw;
+    min-height: 20vw;
     background-color: #272737;
     box-shadow: 0 2px 24px hsla(228, 80%, 4%, 0.5);
     border-radius: 1rem;
